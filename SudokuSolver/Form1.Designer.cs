@@ -111,8 +111,16 @@
             this.textBox79 = new System.Windows.Forms.TextBox();
             this.textBox80 = new System.Windows.Forms.TextBox();
             this.textBox81 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGenerate = new System.Windows.Forms.Button();
+            this.btnSolveBacktracking = new System.Windows.Forms.Button();
+            this.btnSolveHeuristic = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -121,6 +129,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.97294F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.02706F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -252,6 +261,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,6 +275,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,6 +289,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox3.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -291,6 +303,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox4.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -304,6 +317,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox5.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,6 +331,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox6.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -330,6 +345,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox7.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -343,6 +359,7 @@
             // 
             // textBox8
             // 
+            this.textBox8.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox8.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -356,6 +373,7 @@
             // 
             // textBox9
             // 
+            this.textBox9.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox9.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -369,6 +387,7 @@
             // 
             // textBox10
             // 
+            this.textBox10.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox10.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -382,6 +401,7 @@
             // 
             // textBox11
             // 
+            this.textBox11.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox11.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -395,6 +415,7 @@
             // 
             // textBox12
             // 
+            this.textBox12.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox12.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -408,6 +429,7 @@
             // 
             // textBox13
             // 
+            this.textBox13.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox13.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,6 +443,7 @@
             // 
             // textBox14
             // 
+            this.textBox14.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox14.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -434,6 +457,7 @@
             // 
             // textBox15
             // 
+            this.textBox15.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox15.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -447,6 +471,7 @@
             // 
             // textBox16
             // 
+            this.textBox16.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox16.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -460,6 +485,7 @@
             // 
             // textBox17
             // 
+            this.textBox17.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox17.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -473,6 +499,7 @@
             // 
             // textBox18
             // 
+            this.textBox18.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox18.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -486,6 +513,7 @@
             // 
             // textBox19
             // 
+            this.textBox19.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox19.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -499,6 +527,7 @@
             // 
             // textBox20
             // 
+            this.textBox20.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox20.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -512,6 +541,7 @@
             // 
             // textBox21
             // 
+            this.textBox21.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox21.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -525,6 +555,7 @@
             // 
             // textBox22
             // 
+            this.textBox22.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox22.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -538,6 +569,7 @@
             // 
             // textBox23
             // 
+            this.textBox23.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox23.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox23.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -551,6 +583,7 @@
             // 
             // textBox24
             // 
+            this.textBox24.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox24.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox24.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -564,6 +597,7 @@
             // 
             // textBox25
             // 
+            this.textBox25.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox25.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox25.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -577,6 +611,7 @@
             // 
             // textBox26
             // 
+            this.textBox26.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox26.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox26.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -590,6 +625,7 @@
             // 
             // textBox27
             // 
+            this.textBox27.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox27.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox27.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -603,6 +639,7 @@
             // 
             // textBox28
             // 
+            this.textBox28.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox28.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox28.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -616,6 +653,7 @@
             // 
             // textBox29
             // 
+            this.textBox29.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox29.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox29.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -629,6 +667,7 @@
             // 
             // textBox30
             // 
+            this.textBox30.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox30.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox30.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -642,6 +681,7 @@
             // 
             // textBox31
             // 
+            this.textBox31.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox31.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -655,6 +695,7 @@
             // 
             // textBox32
             // 
+            this.textBox32.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox32.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox32.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -668,6 +709,7 @@
             // 
             // textBox33
             // 
+            this.textBox33.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox33.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox33.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -681,6 +723,7 @@
             // 
             // textBox34
             // 
+            this.textBox34.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox34.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox34.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -694,6 +737,7 @@
             // 
             // textBox35
             // 
+            this.textBox35.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox35.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox35.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -707,6 +751,7 @@
             // 
             // textBox36
             // 
+            this.textBox36.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox36.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox36.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -720,6 +765,7 @@
             // 
             // textBox37
             // 
+            this.textBox37.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox37.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox37.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -733,6 +779,7 @@
             // 
             // textBox38
             // 
+            this.textBox38.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox38.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox38.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -746,6 +793,7 @@
             // 
             // textBox39
             // 
+            this.textBox39.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox39.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox39.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -759,6 +807,7 @@
             // 
             // textBox40
             // 
+            this.textBox40.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox40.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox40.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -772,6 +821,7 @@
             // 
             // textBox41
             // 
+            this.textBox41.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox41.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox41.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox41.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -785,6 +835,7 @@
             // 
             // textBox42
             // 
+            this.textBox42.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox42.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox42.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox42.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -798,6 +849,7 @@
             // 
             // textBox43
             // 
+            this.textBox43.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox43.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox43.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -811,6 +863,7 @@
             // 
             // textBox44
             // 
+            this.textBox44.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox44.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox44.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox44.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -824,6 +877,7 @@
             // 
             // textBox45
             // 
+            this.textBox45.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox45.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox45.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -837,6 +891,7 @@
             // 
             // textBox46
             // 
+            this.textBox46.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox46.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox46.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox46.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -850,6 +905,7 @@
             // 
             // textBox47
             // 
+            this.textBox47.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox47.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox47.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -863,6 +919,7 @@
             // 
             // textBox48
             // 
+            this.textBox48.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox48.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox48.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -876,6 +933,7 @@
             // 
             // textBox49
             // 
+            this.textBox49.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox49.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox49.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox49.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -889,6 +947,7 @@
             // 
             // textBox50
             // 
+            this.textBox50.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox50.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox50.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox50.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -902,6 +961,7 @@
             // 
             // textBox51
             // 
+            this.textBox51.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox51.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox51.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -915,6 +975,7 @@
             // 
             // textBox52
             // 
+            this.textBox52.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox52.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox52.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox52.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -928,6 +989,7 @@
             // 
             // textBox53
             // 
+            this.textBox53.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox53.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox53.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox53.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -941,6 +1003,7 @@
             // 
             // textBox54
             // 
+            this.textBox54.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox54.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox54.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox54.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -954,6 +1017,7 @@
             // 
             // textBox55
             // 
+            this.textBox55.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox55.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox55.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -967,6 +1031,7 @@
             // 
             // textBox56
             // 
+            this.textBox56.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox56.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox56.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox56.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -980,6 +1045,7 @@
             // 
             // textBox57
             // 
+            this.textBox57.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox57.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox57.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox57.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -993,6 +1059,7 @@
             // 
             // textBox58
             // 
+            this.textBox58.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox58.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox58.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox58.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1006,6 +1073,7 @@
             // 
             // textBox59
             // 
+            this.textBox59.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox59.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox59.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox59.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1019,6 +1087,7 @@
             // 
             // textBox60
             // 
+            this.textBox60.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox60.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox60.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox60.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1032,6 +1101,7 @@
             // 
             // textBox61
             // 
+            this.textBox61.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox61.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox61.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox61.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1045,6 +1115,7 @@
             // 
             // textBox62
             // 
+            this.textBox62.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox62.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox62.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox62.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1058,6 +1129,7 @@
             // 
             // textBox63
             // 
+            this.textBox63.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox63.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox63.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox63.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1071,6 +1143,7 @@
             // 
             // textBox64
             // 
+            this.textBox64.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox64.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox64.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox64.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1084,6 +1157,7 @@
             // 
             // textBox65
             // 
+            this.textBox65.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox65.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox65.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox65.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1097,6 +1171,7 @@
             // 
             // textBox66
             // 
+            this.textBox66.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox66.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox66.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox66.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1110,6 +1185,7 @@
             // 
             // textBox67
             // 
+            this.textBox67.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox67.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox67.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox67.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1123,6 +1199,7 @@
             // 
             // textBox68
             // 
+            this.textBox68.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox68.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox68.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox68.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1136,6 +1213,7 @@
             // 
             // textBox69
             // 
+            this.textBox69.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox69.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox69.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox69.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1149,6 +1227,7 @@
             // 
             // textBox70
             // 
+            this.textBox70.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox70.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox70.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox70.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1162,6 +1241,7 @@
             // 
             // textBox71
             // 
+            this.textBox71.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox71.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox71.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox71.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1175,6 +1255,7 @@
             // 
             // textBox72
             // 
+            this.textBox72.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox72.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox72.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox72.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1188,6 +1269,7 @@
             // 
             // textBox73
             // 
+            this.textBox73.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox73.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox73.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox73.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1201,6 +1283,7 @@
             // 
             // textBox74
             // 
+            this.textBox74.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox74.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox74.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox74.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1214,6 +1297,7 @@
             // 
             // textBox75
             // 
+            this.textBox75.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox75.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox75.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox75.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1227,6 +1311,7 @@
             // 
             // textBox76
             // 
+            this.textBox76.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox76.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox76.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox76.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1240,6 +1325,7 @@
             // 
             // textBox77
             // 
+            this.textBox77.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox77.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox77.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox77.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1253,6 +1339,7 @@
             // 
             // textBox78
             // 
+            this.textBox78.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox78.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox78.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox78.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1266,6 +1353,7 @@
             // 
             // textBox79
             // 
+            this.textBox79.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox79.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox79.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox79.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1279,6 +1367,7 @@
             // 
             // textBox80
             // 
+            this.textBox80.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox80.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox80.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox80.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1292,6 +1381,7 @@
             // 
             // textBox81
             // 
+            this.textBox81.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox81.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox81.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox81.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1303,6 +1393,80 @@
             this.textBox81.TabIndex = 80;
             this.textBox81.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(463, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.11821F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88179F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(421, 452);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSolveHeuristic);
+            this.groupBox1.Controls.Add(this.btnSolveBacktracking);
+            this.groupBox1.Controls.Add(this.btnGenerate);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 163);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(415, 147);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sudoku Solver";
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Location = new System.Drawing.Point(6, 39);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(168, 41);
+            this.btnGenerate.TabIndex = 0;
+            this.btnGenerate.Text = "Generate ";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // btnSolveBacktracking
+            // 
+            this.btnSolveBacktracking.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSolveBacktracking.Location = new System.Drawing.Point(6, 89);
+            this.btnSolveBacktracking.Name = "btnSolveBacktracking";
+            this.btnSolveBacktracking.Size = new System.Drawing.Size(168, 41);
+            this.btnSolveBacktracking.TabIndex = 1;
+            this.btnSolveBacktracking.Text = "Backtracking Solver";
+            this.btnSolveBacktracking.UseVisualStyleBackColor = true;
+            this.btnSolveBacktracking.Click += new System.EventHandler(this.btnSolveBacktracking_Click);
+            // 
+            // btnSolveHeuristic
+            // 
+            this.btnSolveHeuristic.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSolveHeuristic.Location = new System.Drawing.Point(180, 88);
+            this.btnSolveHeuristic.Name = "btnSolveHeuristic";
+            this.btnSolveHeuristic.Size = new System.Drawing.Size(166, 41);
+            this.btnSolveHeuristic.TabIndex = 2;
+            this.btnSolveHeuristic.Text = "Heuristic Solver";
+            this.btnSolveHeuristic.UseVisualStyleBackColor = true;
+            this.btnSolveHeuristic.Click += new System.EventHandler(this.btnSolveHeuristic_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(415, 154);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Hint";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1311,9 +1475,12 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1403,6 +1570,12 @@
         private System.Windows.Forms.TextBox textBox79;
         private System.Windows.Forms.TextBox textBox80;
         private System.Windows.Forms.TextBox textBox81;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnSolveHeuristic;
+        private System.Windows.Forms.Button btnSolveBacktracking;
+        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

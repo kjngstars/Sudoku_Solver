@@ -7,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SudokuSolver
 {
     public partial class Form1 : Form
     {
+
+        Dictionary<int, int[,]> sudokuPuzzles = new Dictionary<int, int[,]>();
         public Form1()
         {
             InitializeComponent();
         }
 
+
+        #region form event
         private void tableLayoutPanel2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             Pen p = new Pen(SystemColors.ControlDark,2);
@@ -38,5 +43,67 @@ namespace SudokuSolver
             }
 
         }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            using (StreamReader rd = new StreamReader("sudoku.txt"))
+            {
+                char emptyDigit = '-';
+                string firstLine = rd.ReadLine();
+                int index, count = 0;
+                int[,] puzzle = null;
+
+                while (firstLine != null) 
+                {
+                    if (firstLine.StartsWith("#")) 
+                    {
+                        index = count = 0;
+                        puzzle = new int[9, 9];                        
+                        var indexString = firstLine.Substring(1);
+                        index = int.Parse(indexString);
+                        sudokuPuzzles.Add(index, puzzle);
+                    }
+
+                    if (firstLine.StartsWith("-") || char.IsDigit(firstLine[0]))
+                    {
+                        for (int i = 0; i < 9; i++)
+                        {
+                            if (firstLine[i] != emptyDigit) 
+                            {
+                                if (puzzle != null) 
+                                {
+                                    puzzle[count, i] = (int)char.GetNumericValue(firstLine[i]);
+                                }
+                                
+                            }
+                        }
+                        count++;
+                    }
+                    firstLine = rd.ReadLine();
+                }
+            }
+               
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnSolveBacktracking_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSolveHeuristic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        
+
+        
     }
 }
