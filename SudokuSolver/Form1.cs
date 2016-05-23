@@ -15,6 +15,9 @@ namespace SudokuSolver
     {
 
         Dictionary<int, int[,]> sudokuPuzzles = new Dictionary<int, int[,]>();
+        Random rand = new Random();
+        Puzzle puzzle = null;
+        
         public Form1()
         {
             InitializeComponent();
@@ -87,6 +90,12 @@ namespace SudokuSolver
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            var index = rand.Next(1, sudokuPuzzles.Count);
+            var board = sudokuPuzzles[index];
+
+            puzzle = new Puzzle(board);
+
+            updateBoardSquare(puzzle);
             
         }
 
@@ -102,8 +111,31 @@ namespace SudokuSolver
 
         #endregion
 
-        
+        #region helper function
 
-        
+        void updateBoardSquare(Puzzle puzzle)
+        {
+            string prefixName = "textBox";
+            var board = puzzle.GetBoard();
+
+            foreach (var square in board)
+            {
+                prefixName += square.row.ToString() + square.column.ToString();
+                var textBox = tlpBoard.Controls.Find(prefixName, true);
+
+                if (square.value != 0) 
+                {
+                    textBox[0].Text = square.value.ToString();
+                }
+                
+                prefixName = "textBox";
+            }
+
+
+        }
+
+        #endregion
+
+
     }
 }
