@@ -95,13 +95,13 @@ namespace SudokuSolver
 
             puzzle = new Puzzle(board);
 
-            updateBoardSquare(puzzle);
+            ShowProvidedSquare(puzzle);
             
         }
 
         private void btnSolveBacktracking_Click(object sender, EventArgs e)
         {
-
+            bgBacktracking.RunWorkerAsync(puzzle);
         }
 
         private void btnSolveHeuristic_Click(object sender, EventArgs e)
@@ -111,31 +111,71 @@ namespace SudokuSolver
 
         #endregion
 
-        #region helper function
-
-        void updateBoardSquare(Puzzle puzzle)
+        #region helper function: update...
+        
+        void ShowProvidedSquare(Puzzle puzzle)
         {
             string prefixName = "textBox";
             var board = puzzle.GetBoard();
 
             foreach (var square in board)
             {
-                prefixName += square.row.ToString() + square.column.ToString();
+                prefixName += square.Row.ToString() + square.Column.ToString();
                 var textBox = tlpBoard.Controls.Find(prefixName, true);
 
-                if (square.value != 0) 
+                if (square.Value != 0) 
                 {
-                    textBox[0].Text = square.value.ToString();
+                    textBox[0].ForeColor = Color.Orange;
+                    textBox[0].Text = square.Value.ToString();
                 }
                 
                 prefixName = "textBox";
             }
 
+            
+        }
 
+        void UpdateSquare(Square square)
+        {
+            string textBoxName = "textBox" + square.Row.ToString() + square.Column.ToString();
+            var textBox = tlpBoard.Controls.Find(textBoxName, true);
+            if (square.Value != 0) 
+            {
+                textBox[0].Text = square.Value.ToString();
+            }
+            else
+            {
+                textBox[0].Text = "";
+            }
         }
 
         #endregion
 
+        #region backtracking background task
 
+        private void bgBacktracking_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var puzzle = (Puzzle)e.Argument;
+            SudokuSolver.SolveByBacktracking(puzzle, bgBacktracking);
+        }
+
+        private void bgBacktracking_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            var square = (Square)e.UserState;
+            UpdateSquare(square);
+
+        }
+
+        private void bgBacktracking_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            var a = puzzle;
+        }
+
+        #endregion  
+
+        #region heuristic background task
+
+
+        #endregion
     }
 }
