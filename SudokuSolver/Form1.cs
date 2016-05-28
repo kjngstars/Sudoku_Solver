@@ -13,11 +13,11 @@ namespace SudokuSolver
 {
     public partial class Form1 : Form
     {
-
+        #region properties define
         Dictionary<int, int[,]> sudokuPuzzles = new Dictionary<int, int[,]>();
         Random rand = new Random();
         Puzzle puzzle = null;
-        
+        #endregion
         public Form1()
         {
             InitializeComponent();
@@ -46,7 +46,6 @@ namespace SudokuSolver
             }
 
         }
-
         private void Form1_Shown(object sender, EventArgs e)
         {
             using (StreamReader rd = new StreamReader("sudoku.txt"))
@@ -90,7 +89,7 @@ namespace SudokuSolver
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            var index = rand.Next(1, sudokuPuzzles.Count);
+            var index = rand.Next(1, sudokuPuzzles.Count + 1);
             var board = sudokuPuzzles[index];
 
             puzzle = new Puzzle(board);
@@ -106,15 +105,49 @@ namespace SudokuSolver
 
         private void btnSolveHeuristic_Click(object sender, EventArgs e)
         {
-
+            bgHeuristic.RunWorkerAsync(puzzle);
+            
+        }
+        private void btnShowRemainNumber_Click(object sender, EventArgs e)
+        {
+            ShowRemainNumberCandidate(puzzle);
         }
 
         #endregion
 
-        #region helper function: update...
+        #region helper function: update, check...
         
+        string GetText(List<int> listNumber)
+        {
+            string result = "";
+            foreach (var item in listNumber)
+            {
+                result += item.ToString() + " ";
+            }
+            return result;
+        }
+        void ShowRemainNumberCandidate(Puzzle puzzle)
+        {
+            foreach (Square square in puzzle.GetBoard())
+            {
+                if (square.PosibleCandidate != null) 
+                {
+                    string name = "textBox" + square.Row.ToString() + square.Column.ToString();
+                    var textBox = tlpBoard.Controls.Find(name, true);
+                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 8.0f);
+                    textBox[0].Text = GetText(square.PosibleCandidate);
+                }
+            }
+        }
         void ShowProvidedSquare(Puzzle puzzle)
         {
+            //clear all current spot
+            foreach (var control in tlpBoard.Controls)
+            {
+                var textBox = (TextBox)control;
+                textBox.Text = "";
+            }
+
             string prefixName = "textBox";
             var board = puzzle.GetBoard();
 
@@ -134,7 +167,6 @@ namespace SudokuSolver
 
             
         }
-
         void UpdateSquare(Square square)
         {
             string textBoxName = "textBox" + square.Row.ToString() + square.Column.ToString();
@@ -148,7 +180,16 @@ namespace SudokuSolver
                 textBox[0].Text = "";
             }
         }
-
+        void UpdateSquareHeuristic(HeuristicResult result)
+        {
+            foreach (var square in result.ListSquare)
+            {
+                var remainNumber = GetText(square.PosibleCandidate);
+                var name = "textBox" + square.Row.ToString() + square.Column.ToString();
+                var textBox = tlpBoard.Controls.Find(name, true);
+                textBox[0].Text = remainNumber;
+            }
+        }
         #endregion
 
         #region backtracking background task
@@ -156,7 +197,7 @@ namespace SudokuSolver
         private void bgBacktracking_DoWork(object sender, DoWorkEventArgs e)
         {
             var puzzle = (Puzzle)e.Argument;
-            SudokuSolver.SolveByBacktracking(puzzle, bgBacktracking);
+            SudokuSolver.Instance.SolveByBacktracking(puzzle, bgBacktracking);
         }
 
         private void bgBacktracking_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -171,11 +212,39 @@ namespace SudokuSolver
             var a = puzzle;
         }
 
-        #endregion  
+        #endregion      
 
         #region heuristic background task
 
+        private void bgHeuristic_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var puzzle = (Puzzle)e.Argument;
+            var result = SudokuSolver.Instance.SolveByHeuristic(puzzle,bgHeuristic);          
+        }
+
+        private void bgHeuristic_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            Puzzle currentState = (Puzzle)e.UserState;
+            var listSquareToUpdate = currentState.GetBoard().FindAll(square => square.PosibleCandidate != null);
+
+            foreach (Square square in listSquareToUpdate)
+            {
+                var name = "textBox" + square.Row.ToString() + square.Column.ToString();
+                var textBox = tlpBoard.Controls.Find(name, true);
+                var numbersCandidate = GetText(square.PosibleCandidate);
+                textBox[0].Font = new Font(textBox[0].Font.FontFamily, 8.0f);
+                textBox[0].Text = numbersCandidate;
+            }
+                 
+        }
+
+        private void bgHeuristic_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            
+        }
 
         #endregion
+
+        
     }
 }

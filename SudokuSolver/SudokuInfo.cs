@@ -23,22 +23,22 @@ namespace SudokuSolver
         {
             validCandidate = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            //block 1
+            //block 0
             block.Add(new Blocks { rows = new List<int> { 0, 1, 2 }, columns = new List<int> { 0, 1, 2 } });
-            //block 2
-            block.Add(new Blocks { rows = new List<int> { 3, 4, 5 }, columns = new List<int> { 0, 1, 2 } });
-            //block 3
-            block.Add(new Blocks { rows = new List<int> { 6, 7, 8 }, columns = new List<int> { 0, 1, 2 } });
-            //block 4
+            //block 1
             block.Add(new Blocks { rows = new List<int> { 0, 1, 2 }, columns = new List<int> { 3, 4, 5 } });
+            //block 3
+            block.Add(new Blocks { rows = new List<int> { 0, 1, 2 }, columns = new List<int> { 6, 7, 8 } });
+            //block 4
+            block.Add(new Blocks { rows = new List<int> { 3, 4, 5 }, columns = new List<int> { 0, 1, 2 } });
             //block 5
             block.Add(new Blocks { rows = new List<int> { 3, 4, 5 }, columns = new List<int> { 3, 4, 5 } });
             //block 6
-            block.Add(new Blocks { rows = new List<int> { 6, 7, 8 }, columns = new List<int> { 3, 4, 5 } });
-            //block 7
-            block.Add(new Blocks { rows = new List<int> { 0, 1, 2 }, columns = new List<int> { 6, 7, 8 } });
-            //block 8
             block.Add(new Blocks { rows = new List<int> { 3, 4, 5 }, columns = new List<int> { 6, 7, 8 } });
+            //block 7
+            block.Add(new Blocks { rows = new List<int> { 6, 7, 8 }, columns = new List<int> { 0, 1, 2 } });
+            //block 8
+            block.Add(new Blocks { rows = new List<int> { 6, 7, 8 }, columns = new List<int> { 3, 4, 5 } });
             //block 9
             block.Add(new Blocks { rows = new List<int> { 6, 7, 8 }, columns = new List<int> { 6, 7, 8 } });
 
@@ -69,5 +69,11 @@ namespace SudokuSolver
             return index;
         }
         
+    }
+
+    public class HeuristicResult
+    {
+        public bool Resolved { get; set; }
+        public List<Square> ListSquare { get; set; }
     }
 }
