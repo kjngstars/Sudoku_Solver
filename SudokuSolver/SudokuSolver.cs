@@ -76,6 +76,8 @@ namespace SudokuSolver
             {
                 if (puzzle.IsPuzzleSolved())
                 {
+                    worker.ReportProgress(0, new HeuristicResult { CurrentState = puzzle, ListSquareRelevant = new List<Square>() });
+                    Thread.Sleep(20);
                     return puzzle;
                 }
 
@@ -84,30 +86,36 @@ namespace SudokuSolver
                 result = ApplyNakedTuple(puzzle);
                 if (result.Resolved == true)
                 {
-                    worker.ReportProgress(0, puzzle);
-                    Thread.Sleep(10);
+                    worker.ReportProgress(0, result);
+                    Thread.Sleep(20);
                     continue;
                 }
                 break;
             }
 
-            #region turn around to backtracking
+            #region turn around to backtracking if heuristic failed
+
             var startSquare = puzzle.GetBestSquareToStart();
 
             for (int i = 0; i < startSquare.PosibleCandidate.Count; i++)
             {
                 int value = startSquare.PosibleCandidate[i];
 
+                //remove guess value from list posible candidate
+                startSquare.PosibleCandidate.Remove(value);
+                i--;
                 var tryState = puzzle.Clone();
                 tryState[startSquare.Row, startSquare.Column] = value;
                 var trySquare = tryState.GetSquare(startSquare.Row, startSquare.Column);
                 UpdateNakedSingle(tryState, trySquare);
                 //report progress
-                //worker.ReportProgress(0, trySquare);
-                //Thread.Sleep(10);
+                worker.ReportProgress(0, new HeuristicResult { CurrentState = tryState, ListSquareRelevant = new List<Square> { trySquare } });
+                Thread.Sleep(20);
                 var resultState = SolveByHeuristic(tryState, worker);
                 if (resultState.IsPuzzleSolved())
                 {
+                    worker.ReportProgress(0, new HeuristicResult { CurrentState = resultState, ListSquareRelevant = new List<Square>() });
+                    Thread.Sleep(20);
                     return resultState;
                 }
             }
@@ -115,7 +123,7 @@ namespace SudokuSolver
 
             return puzzle;
         }
-
+            
         #endregion
 
         #region implement heuristic
@@ -131,7 +139,7 @@ namespace SudokuSolver
                 {
                     nakedSingle.Value = nakedSingle.PosibleCandidate[0];
                     UpdateNakedSingle(puzzle, nakedSingle);
-                    return new HeuristicResult { Resolved = true, ListSquare = new List<Square> { nakedSingle } };
+                    return new HeuristicResult { Resolved = true, ListSquareRelevant = new List<Square> { nakedSingle }, CurrentState = puzzle };
                 }
             }
 
@@ -347,7 +355,7 @@ namespace SudokuSolver
                             checkedHeuristic.Add(hash);
                         }
                         UpdateNakedTupe(puzzle, nakedSquare);
-                        return new HeuristicResult { Resolved = true, ListSquare = nakedSquare };
+                        return new HeuristicResult { Resolved = true, ListSquareRelevant = nakedSquare, CurrentState = puzzle };
                     }
                 }
             }

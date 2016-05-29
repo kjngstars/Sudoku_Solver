@@ -71,9 +71,11 @@ namespace SudokuSolver
         
     }
 
+    //This class used for return value for update UI
     public class HeuristicResult
     {
         public bool Resolved { get; set; }
-        public List<Square> ListSquare { get; set; }
+        public Puzzle CurrentState { get; set; }        
+        public List<Square> ListSquareRelevant { get; set; }
     }
 }

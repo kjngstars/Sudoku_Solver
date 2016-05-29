@@ -117,7 +117,7 @@ namespace SudokuSolver
 
         #region helper function: update, check...
         
-        string GetText(List<int> listNumber)
+        string GetNumberCandidateText(List<int> listNumber)
         {
             string result = "";
             foreach (var item in listNumber)
@@ -135,7 +135,7 @@ namespace SudokuSolver
                     string name = "textBox" + square.Row.ToString() + square.Column.ToString();
                     var textBox = tlpBoard.Controls.Find(name, true);
                     textBox[0].Font = new Font(textBox[0].Font.FontFamily, 8.0f);
-                    textBox[0].Text = GetText(square.PosibleCandidate);
+                    textBox[0].Text = GetNumberCandidateText(square.PosibleCandidate);
                 }
             }
         }
@@ -182,14 +182,32 @@ namespace SudokuSolver
         }
         void UpdateSquareHeuristic(HeuristicResult result)
         {
-            foreach (var square in result.ListSquare)
+            Puzzle currentState = result.CurrentState;
+            var listSquareToUpdate = currentState.GetBoard().FindAll(square => square.PosibleCandidate != null);
+
+            foreach (Square square in listSquareToUpdate)
             {
-                var remainNumber = GetText(square.PosibleCandidate);
-                var name = "textBox" + square.Row.ToString() + square.Column.ToString();
-                var textBox = tlpBoard.Controls.Find(name, true);
-                textBox[0].Text = remainNumber;
+                if (square.Value != 0)
+                {
+                    var name = "textBox" + square.Row.ToString() + square.Column.ToString();
+                    var textBox = tlpBoard.Controls.Find(name, true);
+                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 18.0f);
+                    textBox[0].ForeColor = Color.Black;
+                    textBox[0].Text = square.Value.ToString();
+                }
+                else
+                {
+                    var name = "textBox" + square.Row.ToString() + square.Column.ToString();
+                    var textBox = tlpBoard.Controls.Find(name, true);
+                    var numbersCandidate = GetNumberCandidateText(square.PosibleCandidate);
+                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 8.0f);
+                    textBox[0].ForeColor = Color.Green;
+                    textBox[0].Text = numbersCandidate;
+                }
             }
+
         }
+
         #endregion
 
         #region backtracking background task
@@ -224,17 +242,8 @@ namespace SudokuSolver
 
         private void bgHeuristic_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Puzzle currentState = (Puzzle)e.UserState;
-            var listSquareToUpdate = currentState.GetBoard().FindAll(square => square.PosibleCandidate != null);
-
-            foreach (Square square in listSquareToUpdate)
-            {
-                var name = "textBox" + square.Row.ToString() + square.Column.ToString();
-                var textBox = tlpBoard.Controls.Find(name, true);
-                var numbersCandidate = GetText(square.PosibleCandidate);
-                textBox[0].Font = new Font(textBox[0].Font.FontFamily, 8.0f);
-                textBox[0].Text = numbersCandidate;
-            }
+            HeuristicResult result =(HeuristicResult)e.UserState;
+            UpdateSquareHeuristic(result);
                  
         }
 
