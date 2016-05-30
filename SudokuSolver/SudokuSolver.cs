@@ -457,7 +457,7 @@ namespace SudokuSolver
                                 checkedHeuristic.Add(heuristicHash);
                             }
 
-                            UpdateIntersection(puzzle, value, intersectionSquare, houseType);
+                            UpdateIntersection(puzzle, value, intersectionSquare, HouseType.ROW);
                             return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
                         }
                         else if (intersectionSquare.All(sq => sq.Column == intersectionSquare[0].Column))
@@ -471,7 +471,7 @@ namespace SudokuSolver
                                 checkedHeuristic.Add(heuristicHash);
                             }
 
-                            UpdateIntersection(puzzle, value, intersectionSquare, houseType);
+                            UpdateIntersection(puzzle, value, intersectionSquare, HouseType.COLUMN);
                             return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
                         }
                     }
@@ -488,7 +488,7 @@ namespace SudokuSolver
                                 checkedHeuristic.Add(heuristicHash);
                             }
 
-                            UpdateIntersection(puzzle, value, intersectionSquare, houseType);
+                            UpdateIntersection(puzzle, value, intersectionSquare, HouseType.BLOCK);
                             return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
                         }
                     }
