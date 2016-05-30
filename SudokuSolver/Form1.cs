@@ -120,9 +120,9 @@ namespace SudokuSolver
         #endregion
 
         #region helper method: update, check...
-        void SetTextDefaultAppearance(Control textBox)
+        void SetDefaultAppearance(Control textBox)
         {
-            textBox.Font = new Font("Times New Roman",18.0f, FontStyle.Bold);
+            textBox.Font = new Font("Segoe UI", 18.0f, FontStyle.Bold);
             textBox.ForeColor = Color.Orange;
         }
         string GetNumberCandidateText(List<int> listNumber)
@@ -164,9 +164,9 @@ namespace SudokuSolver
                 prefixName += square.Row.ToString() + square.Column.ToString();
                 var textBox = tlpBoard.Controls.Find(prefixName, true);
 
-                if (square.Value != 0) 
+                if (square.Value != 0)
                 {
-                    SetTextDefaultAppearance(textBox[0]);
+                    SetDefaultAppearance(textBox[0]);
                     textBox[0].ForeColor = Color.Orange;
                     textBox[0].Text = square.Value.ToString();
                 }
@@ -273,6 +273,34 @@ namespace SudokuSolver
 
         #endregion
 
-        
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            SudokuSolver.Instance.Reset();
+            foreach (var control in tlpBoard.Controls)
+            {
+                TextBox tb = (TextBox)control;
+                SetDefaultAppearance(tb);
+                tb.Text = "";
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int[,] board = new int[9, 9];
+            foreach (var control in tlpBoard.Controls)
+            {
+                TextBox tb = (TextBox)control;
+                if (tb.Text != "")
+                {
+                    string name = tb.Name;
+                    string index = name.Substring(name.Length - 2);
+                    int r = int.Parse(index[0].ToString());
+                    int c = int.Parse(index[1].ToString());
+                    board[r, c] = int.Parse(tb.Text);
+                }               
+            }
+
+            puzzle = new Puzzle(board);
+        }     
     }
 }
