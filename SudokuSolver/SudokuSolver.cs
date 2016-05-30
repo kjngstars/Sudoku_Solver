@@ -10,7 +10,8 @@ namespace SudokuSolver
 {
     public class SudokuSolver
     {
-        #region enum define 
+        #region properties define 
+        
         public enum HouseType
         {
             ROW = 1,
@@ -44,6 +45,11 @@ namespace SudokuSolver
 
         //prevent create new instance
         private SudokuSolver() { }        
+
+        public void Reset()
+        {            
+            checkedHeuristic.Clear();
+        }
 
         #region sudoku solver method
         public void SolveByBacktracking(Puzzle puzzle, BackgroundWorker worker)

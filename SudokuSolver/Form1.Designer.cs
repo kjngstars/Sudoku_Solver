@@ -118,11 +118,11 @@
             this.btnSolveBacktracking = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.bgBacktracking = new System.ComponentModel.BackgroundWorker();
-            this.bgHeuristic = new System.ComponentModel.BackgroundWorker();
+            this.richTextBoxHint = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.richTextBoxResult = new System.Windows.Forms.RichTextBox();
-            this.richTextBoxHint = new System.Windows.Forms.RichTextBox();
+            this.bgBacktracking = new System.ComponentModel.BackgroundWorker();
+            this.bgHeuristic = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpBoard.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -263,7 +263,7 @@
             this.textBox00.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox00.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox00.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox00.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox00.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox00.Location = new System.Drawing.Point(1, 1);
             this.textBox00.Margin = new System.Windows.Forms.Padding(1);
             this.textBox00.Multiline = true;
@@ -277,7 +277,7 @@
             this.textBox01.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox01.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox01.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox01.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox01.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox01.Location = new System.Drawing.Point(56, 1);
             this.textBox01.Margin = new System.Windows.Forms.Padding(1);
             this.textBox01.Multiline = true;
@@ -291,7 +291,7 @@
             this.textBox02.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox02.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox02.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox02.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox02.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox02.Location = new System.Drawing.Point(111, 1);
             this.textBox02.Margin = new System.Windows.Forms.Padding(1);
             this.textBox02.Multiline = true;
@@ -305,7 +305,7 @@
             this.textBox03.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox03.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox03.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox03.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox03.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox03.Location = new System.Drawing.Point(166, 1);
             this.textBox03.Margin = new System.Windows.Forms.Padding(1);
             this.textBox03.Multiline = true;
@@ -319,7 +319,7 @@
             this.textBox04.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox04.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox04.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox04.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox04.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox04.Location = new System.Drawing.Point(221, 1);
             this.textBox04.Margin = new System.Windows.Forms.Padding(1);
             this.textBox04.Multiline = true;
@@ -333,7 +333,7 @@
             this.textBox05.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox05.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox05.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox05.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox05.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox05.Location = new System.Drawing.Point(276, 1);
             this.textBox05.Margin = new System.Windows.Forms.Padding(1);
             this.textBox05.Multiline = true;
@@ -347,7 +347,7 @@
             this.textBox06.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox06.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox06.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox06.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox06.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox06.Location = new System.Drawing.Point(331, 1);
             this.textBox06.Margin = new System.Windows.Forms.Padding(1);
             this.textBox06.Multiline = true;
@@ -361,7 +361,7 @@
             this.textBox07.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox07.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox07.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox07.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox07.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox07.Location = new System.Drawing.Point(386, 1);
             this.textBox07.Margin = new System.Windows.Forms.Padding(1);
             this.textBox07.Multiline = true;
@@ -375,7 +375,7 @@
             this.textBox08.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox08.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox08.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox08.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox08.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox08.Location = new System.Drawing.Point(441, 1);
             this.textBox08.Margin = new System.Windows.Forms.Padding(1);
             this.textBox08.Multiline = true;
@@ -389,7 +389,7 @@
             this.textBox10.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.Location = new System.Drawing.Point(1, 56);
             this.textBox10.Margin = new System.Windows.Forms.Padding(1);
             this.textBox10.Multiline = true;
@@ -403,7 +403,7 @@
             this.textBox11.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.Location = new System.Drawing.Point(56, 56);
             this.textBox11.Margin = new System.Windows.Forms.Padding(1);
             this.textBox11.Multiline = true;
@@ -417,7 +417,7 @@
             this.textBox12.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.Location = new System.Drawing.Point(111, 56);
             this.textBox12.Margin = new System.Windows.Forms.Padding(1);
             this.textBox12.Multiline = true;
@@ -431,7 +431,7 @@
             this.textBox13.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox13.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.Location = new System.Drawing.Point(166, 56);
             this.textBox13.Margin = new System.Windows.Forms.Padding(1);
             this.textBox13.Multiline = true;
@@ -445,7 +445,7 @@
             this.textBox14.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox14.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox14.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.Location = new System.Drawing.Point(221, 56);
             this.textBox14.Margin = new System.Windows.Forms.Padding(1);
             this.textBox14.Multiline = true;
@@ -459,7 +459,7 @@
             this.textBox15.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox15.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox15.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.Location = new System.Drawing.Point(276, 56);
             this.textBox15.Margin = new System.Windows.Forms.Padding(1);
             this.textBox15.Multiline = true;
@@ -473,7 +473,7 @@
             this.textBox16.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox16.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox16.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox16.Location = new System.Drawing.Point(331, 56);
             this.textBox16.Margin = new System.Windows.Forms.Padding(1);
             this.textBox16.Multiline = true;
@@ -487,7 +487,7 @@
             this.textBox17.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox17.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox17.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox17.Location = new System.Drawing.Point(386, 56);
             this.textBox17.Margin = new System.Windows.Forms.Padding(1);
             this.textBox17.Multiline = true;
@@ -501,7 +501,7 @@
             this.textBox18.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox18.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox18.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox18.Location = new System.Drawing.Point(441, 56);
             this.textBox18.Margin = new System.Windows.Forms.Padding(1);
             this.textBox18.Multiline = true;
@@ -515,7 +515,7 @@
             this.textBox20.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox20.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox20.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox20.Location = new System.Drawing.Point(1, 111);
             this.textBox20.Margin = new System.Windows.Forms.Padding(1);
             this.textBox20.Multiline = true;
@@ -529,7 +529,7 @@
             this.textBox21.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox21.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox21.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox21.Location = new System.Drawing.Point(56, 111);
             this.textBox21.Margin = new System.Windows.Forms.Padding(1);
             this.textBox21.Multiline = true;
@@ -543,7 +543,7 @@
             this.textBox22.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox22.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox22.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox22.Location = new System.Drawing.Point(111, 111);
             this.textBox22.Margin = new System.Windows.Forms.Padding(1);
             this.textBox22.Multiline = true;
@@ -557,7 +557,7 @@
             this.textBox23.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox23.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox23.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox23.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox23.Location = new System.Drawing.Point(166, 111);
             this.textBox23.Margin = new System.Windows.Forms.Padding(1);
             this.textBox23.Multiline = true;
@@ -571,7 +571,7 @@
             this.textBox24.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox24.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox24.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox24.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox24.Location = new System.Drawing.Point(221, 111);
             this.textBox24.Margin = new System.Windows.Forms.Padding(1);
             this.textBox24.Multiline = true;
@@ -585,7 +585,7 @@
             this.textBox25.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox25.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox25.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox25.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox25.Location = new System.Drawing.Point(276, 111);
             this.textBox25.Margin = new System.Windows.Forms.Padding(1);
             this.textBox25.Multiline = true;
@@ -599,7 +599,7 @@
             this.textBox26.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox26.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox26.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox26.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox26.Location = new System.Drawing.Point(331, 111);
             this.textBox26.Margin = new System.Windows.Forms.Padding(1);
             this.textBox26.Multiline = true;
@@ -613,7 +613,7 @@
             this.textBox27.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox27.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox27.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox27.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox27.Location = new System.Drawing.Point(386, 111);
             this.textBox27.Margin = new System.Windows.Forms.Padding(1);
             this.textBox27.Multiline = true;
@@ -627,7 +627,7 @@
             this.textBox28.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox28.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox28.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox28.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox28.Location = new System.Drawing.Point(441, 111);
             this.textBox28.Margin = new System.Windows.Forms.Padding(1);
             this.textBox28.Multiline = true;
@@ -641,7 +641,7 @@
             this.textBox30.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox30.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox30.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox30.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox30.Location = new System.Drawing.Point(1, 166);
             this.textBox30.Margin = new System.Windows.Forms.Padding(1);
             this.textBox30.Multiline = true;
@@ -655,7 +655,7 @@
             this.textBox31.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox31.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox31.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox31.Location = new System.Drawing.Point(56, 166);
             this.textBox31.Margin = new System.Windows.Forms.Padding(1);
             this.textBox31.Multiline = true;
@@ -669,7 +669,7 @@
             this.textBox32.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox32.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox32.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox32.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox32.Location = new System.Drawing.Point(111, 166);
             this.textBox32.Margin = new System.Windows.Forms.Padding(1);
             this.textBox32.Multiline = true;
@@ -683,7 +683,7 @@
             this.textBox33.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox33.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox33.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox33.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox33.Location = new System.Drawing.Point(166, 166);
             this.textBox33.Margin = new System.Windows.Forms.Padding(1);
             this.textBox33.Multiline = true;
@@ -697,7 +697,7 @@
             this.textBox34.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox34.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox34.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox34.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox34.Location = new System.Drawing.Point(221, 166);
             this.textBox34.Margin = new System.Windows.Forms.Padding(1);
             this.textBox34.Multiline = true;
@@ -711,7 +711,7 @@
             this.textBox35.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox35.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox35.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox35.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox35.Location = new System.Drawing.Point(276, 166);
             this.textBox35.Margin = new System.Windows.Forms.Padding(1);
             this.textBox35.Multiline = true;
@@ -725,7 +725,7 @@
             this.textBox36.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox36.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox36.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox36.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox36.Location = new System.Drawing.Point(331, 166);
             this.textBox36.Margin = new System.Windows.Forms.Padding(1);
             this.textBox36.Multiline = true;
@@ -739,7 +739,7 @@
             this.textBox37.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox37.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox37.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox37.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox37.Location = new System.Drawing.Point(386, 166);
             this.textBox37.Margin = new System.Windows.Forms.Padding(1);
             this.textBox37.Multiline = true;
@@ -753,7 +753,7 @@
             this.textBox38.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox38.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox38.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox38.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox38.Location = new System.Drawing.Point(441, 166);
             this.textBox38.Margin = new System.Windows.Forms.Padding(1);
             this.textBox38.Multiline = true;
@@ -767,7 +767,7 @@
             this.textBox40.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox40.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox40.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox40.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox40.Location = new System.Drawing.Point(1, 221);
             this.textBox40.Margin = new System.Windows.Forms.Padding(1);
             this.textBox40.Multiline = true;
@@ -781,7 +781,7 @@
             this.textBox41.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox41.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox41.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox41.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox41.Location = new System.Drawing.Point(56, 221);
             this.textBox41.Margin = new System.Windows.Forms.Padding(1);
             this.textBox41.Multiline = true;
@@ -795,7 +795,7 @@
             this.textBox42.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox42.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox42.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox42.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox42.Location = new System.Drawing.Point(111, 221);
             this.textBox42.Margin = new System.Windows.Forms.Padding(1);
             this.textBox42.Multiline = true;
@@ -809,7 +809,7 @@
             this.textBox43.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox43.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox43.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox43.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox43.Location = new System.Drawing.Point(166, 221);
             this.textBox43.Margin = new System.Windows.Forms.Padding(1);
             this.textBox43.Multiline = true;
@@ -823,7 +823,7 @@
             this.textBox44.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox44.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox44.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox44.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox44.Location = new System.Drawing.Point(221, 221);
             this.textBox44.Margin = new System.Windows.Forms.Padding(1);
             this.textBox44.Multiline = true;
@@ -837,7 +837,7 @@
             this.textBox45.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox45.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox45.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox45.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox45.Location = new System.Drawing.Point(276, 221);
             this.textBox45.Margin = new System.Windows.Forms.Padding(1);
             this.textBox45.Multiline = true;
@@ -851,7 +851,7 @@
             this.textBox46.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox46.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox46.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox46.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox46.Location = new System.Drawing.Point(331, 221);
             this.textBox46.Margin = new System.Windows.Forms.Padding(1);
             this.textBox46.Multiline = true;
@@ -865,7 +865,7 @@
             this.textBox47.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox47.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox47.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox47.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox47.Location = new System.Drawing.Point(386, 221);
             this.textBox47.Margin = new System.Windows.Forms.Padding(1);
             this.textBox47.Multiline = true;
@@ -879,7 +879,7 @@
             this.textBox48.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox48.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox48.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox48.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox48.Location = new System.Drawing.Point(441, 221);
             this.textBox48.Margin = new System.Windows.Forms.Padding(1);
             this.textBox48.Multiline = true;
@@ -893,7 +893,7 @@
             this.textBox50.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox50.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox50.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox50.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox50.Location = new System.Drawing.Point(1, 276);
             this.textBox50.Margin = new System.Windows.Forms.Padding(1);
             this.textBox50.Multiline = true;
@@ -907,7 +907,7 @@
             this.textBox51.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox51.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox51.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox51.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox51.Location = new System.Drawing.Point(56, 276);
             this.textBox51.Margin = new System.Windows.Forms.Padding(1);
             this.textBox51.Multiline = true;
@@ -921,7 +921,7 @@
             this.textBox52.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox52.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox52.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox52.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox52.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox52.Location = new System.Drawing.Point(111, 276);
             this.textBox52.Margin = new System.Windows.Forms.Padding(1);
             this.textBox52.Multiline = true;
@@ -935,7 +935,7 @@
             this.textBox53.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox53.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox53.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox53.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox53.Location = new System.Drawing.Point(166, 276);
             this.textBox53.Margin = new System.Windows.Forms.Padding(1);
             this.textBox53.Multiline = true;
@@ -949,7 +949,7 @@
             this.textBox54.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox54.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox54.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox54.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox54.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox54.Location = new System.Drawing.Point(221, 276);
             this.textBox54.Margin = new System.Windows.Forms.Padding(1);
             this.textBox54.Multiline = true;
@@ -963,7 +963,7 @@
             this.textBox55.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox55.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox55.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox55.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox55.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox55.Location = new System.Drawing.Point(276, 276);
             this.textBox55.Margin = new System.Windows.Forms.Padding(1);
             this.textBox55.Multiline = true;
@@ -977,7 +977,7 @@
             this.textBox56.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox56.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox56.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox56.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox56.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox56.Location = new System.Drawing.Point(331, 276);
             this.textBox56.Margin = new System.Windows.Forms.Padding(1);
             this.textBox56.Multiline = true;
@@ -991,7 +991,7 @@
             this.textBox57.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox57.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox57.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox57.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox57.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox57.Location = new System.Drawing.Point(386, 276);
             this.textBox57.Margin = new System.Windows.Forms.Padding(1);
             this.textBox57.Multiline = true;
@@ -1005,7 +1005,7 @@
             this.textBox58.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox58.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox58.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox58.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox58.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox58.Location = new System.Drawing.Point(441, 276);
             this.textBox58.Margin = new System.Windows.Forms.Padding(1);
             this.textBox58.Multiline = true;
@@ -1019,7 +1019,7 @@
             this.textBox60.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox60.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox60.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox60.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox60.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox60.Location = new System.Drawing.Point(1, 331);
             this.textBox60.Margin = new System.Windows.Forms.Padding(1);
             this.textBox60.Multiline = true;
@@ -1033,7 +1033,7 @@
             this.textBox61.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox61.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox61.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox61.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox61.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox61.Location = new System.Drawing.Point(56, 331);
             this.textBox61.Margin = new System.Windows.Forms.Padding(1);
             this.textBox61.Multiline = true;
@@ -1047,7 +1047,7 @@
             this.textBox62.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox62.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox62.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox62.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox62.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox62.Location = new System.Drawing.Point(111, 331);
             this.textBox62.Margin = new System.Windows.Forms.Padding(1);
             this.textBox62.Multiline = true;
@@ -1061,7 +1061,7 @@
             this.textBox63.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox63.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox63.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox63.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox63.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox63.Location = new System.Drawing.Point(166, 331);
             this.textBox63.Margin = new System.Windows.Forms.Padding(1);
             this.textBox63.Multiline = true;
@@ -1075,7 +1075,7 @@
             this.textBox64.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox64.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox64.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox64.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox64.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox64.Location = new System.Drawing.Point(221, 331);
             this.textBox64.Margin = new System.Windows.Forms.Padding(1);
             this.textBox64.Multiline = true;
@@ -1089,7 +1089,7 @@
             this.textBox65.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox65.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox65.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox65.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox65.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox65.Location = new System.Drawing.Point(276, 331);
             this.textBox65.Margin = new System.Windows.Forms.Padding(1);
             this.textBox65.Multiline = true;
@@ -1103,7 +1103,7 @@
             this.textBox66.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox66.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox66.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox66.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox66.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox66.Location = new System.Drawing.Point(331, 331);
             this.textBox66.Margin = new System.Windows.Forms.Padding(1);
             this.textBox66.Multiline = true;
@@ -1117,7 +1117,7 @@
             this.textBox67.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox67.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox67.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox67.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox67.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox67.Location = new System.Drawing.Point(386, 331);
             this.textBox67.Margin = new System.Windows.Forms.Padding(1);
             this.textBox67.Multiline = true;
@@ -1131,7 +1131,7 @@
             this.textBox68.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox68.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox68.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox68.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox68.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox68.Location = new System.Drawing.Point(441, 331);
             this.textBox68.Margin = new System.Windows.Forms.Padding(1);
             this.textBox68.Multiline = true;
@@ -1145,7 +1145,7 @@
             this.textBox70.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox70.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox70.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox70.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox70.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox70.Location = new System.Drawing.Point(1, 386);
             this.textBox70.Margin = new System.Windows.Forms.Padding(1);
             this.textBox70.Multiline = true;
@@ -1159,7 +1159,7 @@
             this.textBox71.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox71.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox71.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox71.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox71.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox71.Location = new System.Drawing.Point(56, 386);
             this.textBox71.Margin = new System.Windows.Forms.Padding(1);
             this.textBox71.Multiline = true;
@@ -1173,7 +1173,7 @@
             this.textBox72.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox72.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox72.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox72.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox72.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox72.Location = new System.Drawing.Point(111, 386);
             this.textBox72.Margin = new System.Windows.Forms.Padding(1);
             this.textBox72.Multiline = true;
@@ -1187,7 +1187,7 @@
             this.textBox73.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox73.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox73.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox73.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox73.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox73.Location = new System.Drawing.Point(166, 386);
             this.textBox73.Margin = new System.Windows.Forms.Padding(1);
             this.textBox73.Multiline = true;
@@ -1201,7 +1201,7 @@
             this.textBox74.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox74.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox74.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox74.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox74.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox74.Location = new System.Drawing.Point(221, 386);
             this.textBox74.Margin = new System.Windows.Forms.Padding(1);
             this.textBox74.Multiline = true;
@@ -1215,7 +1215,7 @@
             this.textBox75.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox75.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox75.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox75.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox75.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox75.Location = new System.Drawing.Point(276, 386);
             this.textBox75.Margin = new System.Windows.Forms.Padding(1);
             this.textBox75.Multiline = true;
@@ -1229,7 +1229,7 @@
             this.textBox76.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox76.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox76.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox76.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox76.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox76.Location = new System.Drawing.Point(331, 386);
             this.textBox76.Margin = new System.Windows.Forms.Padding(1);
             this.textBox76.Multiline = true;
@@ -1243,7 +1243,7 @@
             this.textBox77.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox77.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox77.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox77.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox77.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox77.Location = new System.Drawing.Point(386, 386);
             this.textBox77.Margin = new System.Windows.Forms.Padding(1);
             this.textBox77.Multiline = true;
@@ -1257,7 +1257,7 @@
             this.textBox78.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox78.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox78.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox78.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox78.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox78.Location = new System.Drawing.Point(441, 386);
             this.textBox78.Margin = new System.Windows.Forms.Padding(1);
             this.textBox78.Multiline = true;
@@ -1271,7 +1271,7 @@
             this.textBox80.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox80.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox80.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox80.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox80.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox80.Location = new System.Drawing.Point(1, 441);
             this.textBox80.Margin = new System.Windows.Forms.Padding(1);
             this.textBox80.Multiline = true;
@@ -1285,7 +1285,7 @@
             this.textBox81.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox81.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox81.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox81.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox81.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox81.Location = new System.Drawing.Point(56, 441);
             this.textBox81.Margin = new System.Windows.Forms.Padding(1);
             this.textBox81.Multiline = true;
@@ -1299,7 +1299,7 @@
             this.textBox82.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox82.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox82.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox82.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox82.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox82.Location = new System.Drawing.Point(111, 441);
             this.textBox82.Margin = new System.Windows.Forms.Padding(1);
             this.textBox82.Multiline = true;
@@ -1313,7 +1313,7 @@
             this.textBox83.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox83.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox83.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox83.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox83.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox83.Location = new System.Drawing.Point(166, 441);
             this.textBox83.Margin = new System.Windows.Forms.Padding(1);
             this.textBox83.Multiline = true;
@@ -1327,7 +1327,7 @@
             this.textBox84.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox84.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox84.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox84.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox84.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox84.Location = new System.Drawing.Point(221, 441);
             this.textBox84.Margin = new System.Windows.Forms.Padding(1);
             this.textBox84.Multiline = true;
@@ -1341,7 +1341,7 @@
             this.textBox85.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox85.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox85.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox85.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox85.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox85.Location = new System.Drawing.Point(276, 441);
             this.textBox85.Margin = new System.Windows.Forms.Padding(1);
             this.textBox85.Multiline = true;
@@ -1355,7 +1355,7 @@
             this.textBox86.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox86.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox86.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox86.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox86.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox86.Location = new System.Drawing.Point(331, 441);
             this.textBox86.Margin = new System.Windows.Forms.Padding(1);
             this.textBox86.Multiline = true;
@@ -1369,7 +1369,7 @@
             this.textBox87.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox87.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox87.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox87.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox87.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox87.Location = new System.Drawing.Point(386, 441);
             this.textBox87.Margin = new System.Windows.Forms.Padding(1);
             this.textBox87.Multiline = true;
@@ -1383,7 +1383,7 @@
             this.textBox88.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBox88.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox88.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox88.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox88.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox88.Location = new System.Drawing.Point(441, 441);
             this.textBox88.Margin = new System.Windows.Forms.Padding(1);
             this.textBox88.Multiline = true;
@@ -1480,21 +1480,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hint";
             // 
-            // bgBacktracking
+            // richTextBoxHint
             // 
-            this.bgBacktracking.WorkerReportsProgress = true;
-            this.bgBacktracking.WorkerSupportsCancellation = true;
-            this.bgBacktracking.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgBacktracking_DoWork);
-            this.bgBacktracking.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgBacktracking_ProgressChanged);
-            this.bgBacktracking.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgBacktracking_RunWorkerCompleted);
-            // 
-            // bgHeuristic
-            // 
-            this.bgHeuristic.WorkerReportsProgress = true;
-            this.bgHeuristic.WorkerSupportsCancellation = true;
-            this.bgHeuristic.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgHeuristic_DoWork);
-            this.bgHeuristic.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgHeuristic_ProgressChanged);
-            this.bgHeuristic.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgHeuristic_RunWorkerCompleted);
+            this.richTextBoxHint.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBoxHint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxHint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxHint.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxHint.Location = new System.Drawing.Point(3, 32);
+            this.richTextBoxHint.Name = "richTextBoxHint";
+            this.richTextBoxHint.ReadOnly = true;
+            this.richTextBoxHint.Size = new System.Drawing.Size(447, 141);
+            this.richTextBoxHint.TabIndex = 0;
+            this.richTextBoxHint.Text = "";
             // 
             // groupBox3
             // 
@@ -1513,6 +1510,7 @@
             this.richTextBoxResult.BackColor = System.Drawing.SystemColors.Info;
             this.richTextBoxResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxResult.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxResult.Location = new System.Drawing.Point(3, 32);
             this.richTextBoxResult.Name = "richTextBoxResult";
             this.richTextBoxResult.ReadOnly = true;
@@ -1520,17 +1518,21 @@
             this.richTextBoxResult.TabIndex = 0;
             this.richTextBoxResult.Text = "";
             // 
-            // richTextBoxHint
+            // bgBacktracking
             // 
-            this.richTextBoxHint.BackColor = System.Drawing.SystemColors.Info;
-            this.richTextBoxHint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxHint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxHint.Location = new System.Drawing.Point(3, 32);
-            this.richTextBoxHint.Name = "richTextBoxHint";
-            this.richTextBoxHint.ReadOnly = true;
-            this.richTextBoxHint.Size = new System.Drawing.Size(447, 141);
-            this.richTextBoxHint.TabIndex = 0;
-            this.richTextBoxHint.Text = "";
+            this.bgBacktracking.WorkerReportsProgress = true;
+            this.bgBacktracking.WorkerSupportsCancellation = true;
+            this.bgBacktracking.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgBacktracking_DoWork);
+            this.bgBacktracking.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgBacktracking_ProgressChanged);
+            this.bgBacktracking.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgBacktracking_RunWorkerCompleted);
+            // 
+            // bgHeuristic
+            // 
+            this.bgHeuristic.WorkerReportsProgress = true;
+            this.bgHeuristic.WorkerSupportsCancellation = true;
+            this.bgHeuristic.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgHeuristic_DoWork);
+            this.bgHeuristic.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgHeuristic_ProgressChanged);
+            this.bgHeuristic.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgHeuristic_RunWorkerCompleted);
             // 
             // Form1
             // 
@@ -1538,6 +1540,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 501);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Shown += new System.EventHandler(this.Form1_Shown);

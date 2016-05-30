@@ -8,15 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace SudokuSolver
 {
     public partial class Form1 : Form
     {
         #region properties define
+        Stopwatch watch = null;
+
         Dictionary<int, int[,]> sudokuPuzzles = new Dictionary<int, int[,]>();
         Random rand = new Random();
-        Puzzle puzzle = null;
+        Puzzle puzzle = null;    
+
         #endregion
         public Form1()
         {
@@ -88,12 +92,13 @@ namespace SudokuSolver
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
-        {
+        {            
             var index = rand.Next(1, sudokuPuzzles.Count + 1);
             var board = sudokuPuzzles[index];
 
+            SudokuSolver.Instance.Reset();
             puzzle = new Puzzle(board);
-            ShowProvidedSquare(puzzle);
+            ShowFilledSquare(puzzle);
             
         }
 
@@ -114,8 +119,12 @@ namespace SudokuSolver
 
         #endregion
 
-        #region helper function: update, check...
-        
+        #region helper method: update, check...
+        void SetTextDefaultAppearance(Control textBox)
+        {
+            textBox.Font = new Font("Times New Roman",18.0f, FontStyle.Bold);
+            textBox.ForeColor = Color.Orange;
+        }
         string GetNumberCandidateText(List<int> listNumber)
         {
             string result = "";
@@ -138,7 +147,7 @@ namespace SudokuSolver
                 }
             }
         }
-        void ShowProvidedSquare(Puzzle puzzle)
+        void ShowFilledSquare(Puzzle puzzle)
         {
             //clear all current spot
             foreach (var control in tlpBoard.Controls)
@@ -157,6 +166,7 @@ namespace SudokuSolver
 
                 if (square.Value != 0) 
                 {
+                    SetTextDefaultAppearance(textBox[0]);
                     textBox[0].ForeColor = Color.Orange;
                     textBox[0].Text = square.Value.ToString();
                 }
@@ -213,8 +223,11 @@ namespace SudokuSolver
 
         private void bgBacktracking_DoWork(object sender, DoWorkEventArgs e)
         {
+            watch = new Stopwatch();
+            watch.Start();
             var puzzle = (Puzzle)e.Argument;
             SudokuSolver.Instance.SolveByBacktracking(puzzle, bgBacktracking);
+            watch.Stop();
         }
 
         private void bgBacktracking_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -226,7 +239,9 @@ namespace SudokuSolver
 
         private void bgBacktracking_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            var a = puzzle;
+            var timePass = (double)watch.ElapsedMilliseconds / 1000;
+            var result = "✔ Time take: " + timePass.ToString() + " Seconds\n";
+            richTextBoxResult.AppendText(result);
         }
 
         #endregion      
@@ -235,8 +250,11 @@ namespace SudokuSolver
 
         private void bgHeuristic_DoWork(object sender, DoWorkEventArgs e)
         {
+            watch = new Stopwatch();
+            watch.Start();
             var puzzle = (Puzzle)e.Argument;
-            var result = SudokuSolver.Instance.SolveByHeuristic(puzzle,bgHeuristic);          
+            var result = SudokuSolver.Instance.SolveByHeuristic(puzzle,bgHeuristic);
+            watch.Stop();
         }
 
         private void bgHeuristic_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -248,7 +266,9 @@ namespace SudokuSolver
 
         private void bgHeuristic_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            
+            var timePass = (double)watch.ElapsedMilliseconds / 1000;
+            var result = "✔ Time take: " + timePass.ToString() + " Seconds\n";
+            richTextBoxResult.AppendText(result);
         }
 
         #endregion
