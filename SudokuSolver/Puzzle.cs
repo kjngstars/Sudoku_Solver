@@ -83,7 +83,7 @@ namespace SudokuSolver
         }
         public List<int> GetRemainNumberInColumn(int column)
         {
-            var providedNumberInColumn = GetProvidedNumberInRow(column);
+            var providedNumberInColumn = GetProvidedNumberInColumn(column);
             var remainNumberInColumn = SudokuInfo.Instance.ListValidCandidate().Except(providedNumberInColumn).ToList();
             return remainNumberInColumn;
         }
@@ -95,7 +95,7 @@ namespace SudokuSolver
         }
         public List<int> GetRemainNumberInBlock(int block)
         {
-            var providedNumberInBlock= GetProvidedNumberInRow(block);
+            var providedNumberInBlock= GetProvidedNumberInBlock(block);
             var remainNumberInBlock = SudokuInfo.Instance.ListValidCandidate().Except(providedNumberInBlock).ToList();
             return remainNumberInBlock;
         }

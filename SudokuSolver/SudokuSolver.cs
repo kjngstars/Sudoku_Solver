@@ -10,6 +10,22 @@ namespace SudokuSolver
 {
     public class SudokuSolver
     {
+        #region enum define 
+        public enum HouseType
+        {
+            ROW = 1,
+            COLUMN,
+            BLOCK
+        }
+
+        public enum HeuristicType
+        {
+            NAKEDSUBSET,
+            INTERSECT
+        }
+
+        #endregion
+        
         private static SudokuSolver instance = null;
         public static SudokuSolver Instance
         {
@@ -27,13 +43,7 @@ namespace SudokuSolver
         private List<String> checkedHeuristic = new List<String>();
 
         //prevent create new instance
-        private SudokuSolver() { }
-        public enum Type
-        {
-            ROW = 1,
-            COLUMN,
-            BLOCK
-        }
+        private SudokuSolver() { }        
 
         #region sudoku solver method
         public void SolveByBacktracking(Puzzle puzzle, BackgroundWorker worker)
@@ -90,6 +100,15 @@ namespace SudokuSolver
                     Thread.Sleep(20);
                     continue;
                 }
+
+                result = ApplyIntersection(puzzle);
+                if (result.Resolved == true)
+                {
+                    worker.ReportProgress(0, result);
+                    Thread.Sleep(20);
+                    continue;
+                }
+
                 break;
             }
 
@@ -126,9 +145,9 @@ namespace SudokuSolver
             
         #endregion
 
-        #region implement heuristic
-
-        //naked subset
+        #region implement heuristic solving method
+        
+        #region naked subset
         public HeuristicResult NakedSingle(Puzzle puzzle)
         {
             for (int i = 0; i < 9; i++)
@@ -148,19 +167,19 @@ namespace SudokuSolver
 
         void UpdateNakedSingle(Puzzle puzzle, Square square)
         {
-            UpdateNakedSingleHouse(puzzle, square, Type.ROW);
-            UpdateNakedSingleHouse(puzzle, square, Type.COLUMN);
-            UpdateNakedSingleHouse(puzzle, square, Type.BLOCK);
+            UpdateNakedSingleHouse(puzzle, square, HouseType.ROW);
+            UpdateNakedSingleHouse(puzzle, square, HouseType.COLUMN);
+            UpdateNakedSingleHouse(puzzle, square, HouseType.BLOCK);
         }
 
-        void UpdateNakedSingleHouse(Puzzle puzzle, Square square, Type type)
+        void UpdateNakedSingleHouse(Puzzle puzzle, Square square, HouseType type)
         {
             List<Square> listCandidate = null;
-            if (type == Type.ROW)
+            if (type == HouseType.ROW)
             {
                 listCandidate = puzzle.GetListCandidateInRow(square.Row);
             }
-            else if (type == Type.COLUMN)
+            else if (type == HouseType.COLUMN)
             {
                 listCandidate = puzzle.GetListCandidateInColumn(square.Column);
             }
@@ -221,7 +240,7 @@ namespace SudokuSolver
             //check in row
             for (int i = 0; i < 9; i++)
             {
-                var result = NakedTupeByHouse(puzzle, tuple, i, Type.ROW);
+                var result = NakedTupeByHouse(puzzle, tuple, i, HouseType.ROW);
                 if (result.Resolved == true)
                 {
                     return result;
@@ -231,7 +250,7 @@ namespace SudokuSolver
             //check in column
             for (int i = 0; i < 9; i++)
             {
-                var result = NakedTupeByHouse(puzzle, tuple, i, Type.COLUMN);
+                var result = NakedTupeByHouse(puzzle, tuple, i, HouseType.COLUMN);
                 if (result.Resolved == true)
                 {
                     return result;
@@ -241,7 +260,7 @@ namespace SudokuSolver
             //check in block
             for (int i = 0; i < 9; i++)
             {
-                var result = NakedTupeByHouse(puzzle, tuple, i, Type.BLOCK);
+                var result = NakedTupeByHouse(puzzle, tuple, i, HouseType.BLOCK);
                 if (result.Resolved == true)
                 {
                     return result;
@@ -255,70 +274,28 @@ namespace SudokuSolver
         {
             if (listNakedTuple.All(square => square.Row == listNakedTuple[0].Row))
             {
-                UpdateNakedTupeByHouse(puzzle, listNakedTuple, Type.ROW);
+                UpdateNakedTupeByHouse(puzzle, listNakedTuple, HouseType.ROW);
             }
 
             if (listNakedTuple.All(square => square.Column == listNakedTuple[0].Column))
             {
-                UpdateNakedTupeByHouse(puzzle, listNakedTuple, Type.COLUMN);
+                UpdateNakedTupeByHouse(puzzle, listNakedTuple, HouseType.COLUMN);
             }
 
             if (listNakedTuple.All(square => square.Block == listNakedTuple[0].Block))
             {
-                UpdateNakedTupeByHouse(puzzle, listNakedTuple, Type.BLOCK);
+                UpdateNakedTupeByHouse(puzzle, listNakedTuple, HouseType.BLOCK);
             }
         }
 
-        #endregion
-
-        #region helper method
-
-        List<int> GetUnionElement(List<Square> listSquare)
-        {
-            List<int> result = new List<int>();
-            foreach (var item in listSquare)
-            {
-                result = result.Union(item.PosibleCandidate).ToList();
-            }
-            return result;
-        }
-
-        void UpdateNakedTupeByHouse(Puzzle puzzle, List<Square> listNakedTupe, Type type)
-        {
-            List<Square> listSquareToUpdate = null;
-
-            if (type == Type.ROW)
-            {
-                var row = listNakedTupe[0].Row;
-                listSquareToUpdate = puzzle.GetListCandidateInRow(row);
-            }
-            else if (type == Type.COLUMN)
-            {
-                var column = listNakedTupe[0].Column;
-                listSquareToUpdate = puzzle.GetListCandidateInColumn(column);
-            }
-            else if (type == Type.BLOCK)
-            {
-                var block = listNakedTupe[0].Block;
-                listSquareToUpdate = puzzle.GetListCandidateInBlock(block);
-            }
-
-            listSquareToUpdate.RemoveAll(square => listNakedTupe.Contains(square));
-            var listNumberToRemove = GetUnionElement(listNakedTupe);
-
-            for (int i = 0; i < listSquareToUpdate.Count; i++)
-            {
-                listSquareToUpdate[i].PosibleCandidate.RemoveAll(value => listNumberToRemove.Contains(value));
-            }
-        }
-        HeuristicResult NakedTupeByHouse(Puzzle puzzle, int tuple, int index, Type type)
+        HeuristicResult NakedTupeByHouse(Puzzle puzzle, int tuple, int index, HouseType type)
         {
             List<Square> listCandidate = null;
-            if (type == Type.ROW)
+            if (type == HouseType.ROW)
             {
                 listCandidate = puzzle.GetListCandidateInRow(index);
             }
-            else if (type == Type.COLUMN)
+            else if (type == HouseType.COLUMN)
             {
                 listCandidate = puzzle.GetListCandidateInColumn(index);
             }
@@ -345,7 +322,7 @@ namespace SudokuSolver
 
                     if (nakedSquare.Count == tuple)
                     {
-                        var hash = GetHashHeuristic(nakedSquare);
+                        var hash = GetHashHeuristic(nakedSquare, HeuristicType.NAKEDSUBSET);
                         if (checkedHeuristic.Contains(hash))
                         {
                             continue;
@@ -362,9 +339,205 @@ namespace SudokuSolver
             return new HeuristicResult { Resolved = false };
         }
 
-        string GetHashHeuristic(List<Square> listPuzzle)
+        void UpdateNakedTupeByHouse(Puzzle puzzle, List<Square> listNakedTupe, HouseType type)
         {
-            string hash = "";
+            List<Square> listSquareToUpdate = null;
+
+            if (type == HouseType.ROW)
+            {
+                var row = listNakedTupe[0].Row;
+                listSquareToUpdate = puzzle.GetListCandidateInRow(row);
+            }
+            else if (type == HouseType.COLUMN)
+            {
+                var column = listNakedTupe[0].Column;
+                listSquareToUpdate = puzzle.GetListCandidateInColumn(column);
+            }
+            else if (type == HouseType.BLOCK)
+            {
+                var block = listNakedTupe[0].Block;
+                listSquareToUpdate = puzzle.GetListCandidateInBlock(block);
+            }
+
+            listSquareToUpdate.RemoveAll(square => listNakedTupe.Contains(square));
+            var listNumberToRemove = GetUnionElement(listNakedTupe);
+
+            for (int i = 0; i < listSquareToUpdate.Count; i++)
+            {
+                listSquareToUpdate[i].PosibleCandidate.RemoveAll(value => listNumberToRemove.Contains(value));
+            }
+        }        
+
+        #endregion
+
+        #region Intersections heuristic
+
+        public HeuristicResult ApplyIntersection(Puzzle puzzle)
+        {
+            HeuristicResult result = null;
+
+            //check in block
+            for (int i = 0; i < 9; i++)
+            {
+                result = Intersection(puzzle, HouseType.BLOCK, i);
+                if (result.Resolved == true)
+                {
+                    return result;
+                }
+            }
+
+            //check in row
+            for (int i = 0; i < 9; i++)
+            {
+                result = Intersection(puzzle, HouseType.ROW, i);
+                if (result.Resolved == true)
+                {
+                    return result;
+                }
+            }
+
+            //check in column
+            for (int i = 0; i < 9; i++)
+            {
+                result = Intersection(puzzle, HouseType.COLUMN, i);
+                if (result.Resolved == true)
+                {
+                    return result;
+                }
+            }
+
+            return new HeuristicResult { Resolved = false };
+        }
+        public HeuristicResult Intersection(Puzzle puzzle, HouseType houseType, int index)
+        {
+            List<Square> remainSquares = null;
+            List<int> remainValues = null;
+
+            if (houseType == HouseType.ROW)
+            {
+                remainSquares = puzzle.GetListCandidateInRow(index);
+                remainValues = puzzle.GetRemainNumberInRow(index);
+            }
+            else if (houseType == HouseType.COLUMN)
+            {
+                remainSquares = puzzle.GetListCandidateInColumn(index);
+                remainValues = puzzle.GetRemainNumberInColumn(index);
+            }
+            else
+            {
+                remainSquares = puzzle.GetListCandidateInBlock(index);
+                remainValues = puzzle.GetRemainNumberInBlock(index);
+            }
+
+            for (int k = 0; k < remainValues.Count; k++)
+            {
+                int value = remainValues[k];
+                var intersectionSquare = remainSquares.FindAll(square => square.PosibleCandidate.Contains(value));
+
+                if (intersectionSquare.Count <= 3 && intersectionSquare.Count >= 2) 
+                {
+                    var heuristicHash = GetHashHeuristic(intersectionSquare, HeuristicType.INTERSECT);
+
+                    if (houseType == HouseType.BLOCK) 
+                    {
+                        if (intersectionSquare.All(sq => sq.Row == intersectionSquare[0].Row))
+                        {                            
+                            if (checkedHeuristic.Contains(heuristicHash))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                checkedHeuristic.Add(heuristicHash);
+                            }
+
+                            UpdateIntersection(puzzle, value, intersectionSquare, houseType);
+                            return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
+                        }
+                        else if (intersectionSquare.All(sq => sq.Column == intersectionSquare[0].Column))
+                        {
+                            if (checkedHeuristic.Contains(heuristicHash))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                checkedHeuristic.Add(heuristicHash);
+                            }
+
+                            UpdateIntersection(puzzle, value, intersectionSquare, houseType);
+                            return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
+                        }
+                    }
+                    else
+                    {
+                        if (intersectionSquare.All(sq => sq.Block == intersectionSquare[0].Block))
+                        {
+                            if (checkedHeuristic.Contains(heuristicHash))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                checkedHeuristic.Add(heuristicHash);
+                            }
+
+                            UpdateIntersection(puzzle, value, intersectionSquare, houseType);
+                            return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
+                        }
+                    }
+                }
+            }
+
+            return new HeuristicResult { Resolved = false };
+        }
+
+        void UpdateIntersection(Puzzle puzzle, int value, List<Square> intersection, HouseType houseType)
+        {
+            List<Square> listRemainSquare = null;
+
+            if (houseType == HouseType.BLOCK)
+            {
+                listRemainSquare = puzzle.GetListCandidateInBlock(intersection[0].Block);
+                listRemainSquare.RemoveAll(sq => intersection.Contains(sq));
+                
+            }
+            else if (houseType == HouseType.ROW)
+            {
+                listRemainSquare = puzzle.GetListCandidateInRow(intersection[0].Row);
+                listRemainSquare.RemoveAll(sq => intersection.Contains(sq));                
+            }
+            else
+            {
+                listRemainSquare = puzzle.GetListCandidateInColumn(intersection[0].Column);
+                listRemainSquare.RemoveAll(sq => intersection.Contains(sq)); 
+            }
+
+            for (int i = 0; i < listRemainSquare.Count; i++)
+            {
+                listRemainSquare[i].PosibleCandidate.Remove(value);
+            }
+        }        
+
+        #endregion
+
+        #endregion
+
+        #region helper method
+
+        List<int> GetUnionElement(List<Square> listSquare)
+        {
+            List<int> result = new List<int>();
+            foreach (var item in listSquare)
+            {
+                result = result.Union(item.PosibleCandidate).ToList();
+            }
+            return result;
+        }        
+
+        string GetHashHeuristic(List<Square> listPuzzle, HeuristicType heuristic)
+        {
+            string hash = heuristic.ToString();
             foreach (var item in listPuzzle)
             {
                 hash += item.Row.ToString() + item.Column.ToString();

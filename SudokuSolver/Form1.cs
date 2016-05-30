@@ -93,7 +93,6 @@ namespace SudokuSolver
             var board = sudokuPuzzles[index];
 
             puzzle = new Puzzle(board);
-
             ShowProvidedSquare(puzzle);
             
         }

@@ -120,10 +120,15 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bgBacktracking = new System.ComponentModel.BackgroundWorker();
             this.bgHeuristic = new System.ComponentModel.BackgroundWorker();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.richTextBoxResult = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxHint = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpBoard.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -140,7 +145,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.4898F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 503F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(967, 499);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(967, 501);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tlpBoard
@@ -154,7 +159,7 @@
             this.tlpBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tlpBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tlpBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tlpBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tlpBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tlpBoard.Controls.Add(this.textBox00, 0, 0);
             this.tlpBoard.Controls.Add(this.textBox01, 1, 0);
             this.tlpBoard.Controls.Add(this.textBox02, 2, 0);
@@ -249,7 +254,7 @@
             this.tlpBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tlpBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tlpBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tlpBoard.Size = new System.Drawing.Size(496, 493);
+            this.tlpBoard.Size = new System.Drawing.Size(496, 495);
             this.tlpBoard.TabIndex = 0;
             this.tlpBoard.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel2_CellPaint);
             // 
@@ -1393,6 +1398,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.groupBox2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox3, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(505, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -1400,7 +1406,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.11821F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88179F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(459, 493);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(459, 495);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // groupBox1
@@ -1411,9 +1417,9 @@
             this.groupBox1.Controls.Add(this.btnGenerate);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 184);
+            this.groupBox1.Location = new System.Drawing.Point(3, 185);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 167);
+            this.groupBox1.Size = new System.Drawing.Size(453, 168);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sudoku Solver";
@@ -1464,11 +1470,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.richTextBoxHint);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(453, 175);
+            this.groupBox2.Size = new System.Drawing.Size(453, 176);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hint";
@@ -1489,11 +1496,47 @@
             this.bgHeuristic.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgHeuristic_ProgressChanged);
             this.bgHeuristic.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgHeuristic_RunWorkerCompleted);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.richTextBoxResult);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(3, 359);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(453, 133);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Result";
+            // 
+            // richTextBoxResult
+            // 
+            this.richTextBoxResult.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBoxResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxResult.Location = new System.Drawing.Point(3, 32);
+            this.richTextBoxResult.Name = "richTextBoxResult";
+            this.richTextBoxResult.ReadOnly = true;
+            this.richTextBoxResult.Size = new System.Drawing.Size(447, 98);
+            this.richTextBoxResult.TabIndex = 0;
+            this.richTextBoxResult.Text = "";
+            // 
+            // richTextBoxHint
+            // 
+            this.richTextBoxHint.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBoxHint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxHint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxHint.Location = new System.Drawing.Point(3, 32);
+            this.richTextBoxHint.Name = "richTextBoxHint";
+            this.richTextBoxHint.ReadOnly = true;
+            this.richTextBoxHint.Size = new System.Drawing.Size(447, 141);
+            this.richTextBoxHint.TabIndex = 0;
+            this.richTextBoxHint.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 499);
+            this.ClientSize = new System.Drawing.Size(967, 501);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1503,6 +1546,8 @@
             this.tlpBoard.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1601,6 +1646,9 @@
         private System.Windows.Forms.TextBox textBox88;
         private System.ComponentModel.BackgroundWorker bgHeuristic;
         private System.Windows.Forms.Button btnShowRemainNumber;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RichTextBox richTextBoxResult;
+        private System.Windows.Forms.RichTextBox richTextBoxHint;
     }
 }
 
