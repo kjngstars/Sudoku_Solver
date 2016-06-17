@@ -52,8 +52,15 @@ namespace SudokuSolver
         }
 
         #region sudoku solver method
-        public void SolveByBacktracking(Puzzle puzzle, BackgroundWorker worker)
+        public void SolveByBacktracking(Puzzle puzzle, BackgroundWorker worker, DoWorkEventArgs e)
         {
+
+            if (worker.CancellationPending) 
+            {
+                e.Cancel = true;
+                return;
+            }
+
             if (puzzle.IsPuzzleSolved())
             {
                 return;
@@ -72,7 +79,7 @@ namespace SudokuSolver
                 worker.ReportProgress(0, startSquare);
                 Thread.Sleep(10);
 
-                SolveByBacktracking(puzzle, worker);
+                SolveByBacktracking(puzzle, worker, e);
 
                 if (puzzle.IsPuzzleSolved())
                 {
@@ -86,8 +93,14 @@ namespace SudokuSolver
 
             return;
         }
-        public Puzzle SolveByHeuristic(Puzzle puzzle, BackgroundWorker worker)
+        public Puzzle SolveByHeuristic(Puzzle puzzle, BackgroundWorker worker, DoWorkEventArgs e)
         {
+            if (worker.CancellationPending)
+            {
+                e.Cancel = true;
+                return puzzle;
+            }
+
             while (true)
             {
                 if (puzzle.IsPuzzleSolved())
@@ -136,7 +149,7 @@ namespace SudokuSolver
                 //report progress
                 worker.ReportProgress(0, new HeuristicResult { CurrentState = tryState, ListSquareRelevant = new List<Square> { trySquare } });
                 Thread.Sleep(20);
-                var resultState = SolveByHeuristic(tryState, worker);
+                var resultState = SolveByHeuristic(tryState, worker, e);
                 if (resultState.IsPuzzleSolved())
                 {
                     worker.ReportProgress(0, new HeuristicResult { CurrentState = resultState, ListSquareRelevant = new List<Square>() });

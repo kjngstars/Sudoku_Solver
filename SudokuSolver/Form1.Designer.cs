@@ -113,6 +113,8 @@
             this.textBox88 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnShowRemainNumber = new System.Windows.Forms.Button();
             this.btnSolveHeuristic = new System.Windows.Forms.Button();
             this.btnSolveBacktracking = new System.Windows.Forms.Button();
@@ -123,8 +125,7 @@
             this.richTextBoxResult = new System.Windows.Forms.RichTextBox();
             this.bgBacktracking = new System.ComponentModel.BackgroundWorker();
             this.bgHeuristic = new System.ComponentModel.BackgroundWorker();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpBoard.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -1487,14 +1488,15 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(505, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.11821F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.88179F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.10112F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.89888F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(459, 495);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnStop);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnShowRemainNumber);
@@ -1503,12 +1505,32 @@
             this.groupBox1.Controls.Add(this.btnGenerate);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 185);
+            this.groupBox1.Location = new System.Drawing.Point(3, 160);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 168);
+            this.groupBox1.Size = new System.Drawing.Size(453, 193);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sudoku Solver";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(363, 90);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 40);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(363, 39);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 40);
+            this.btnClear.TabIndex = 4;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnShowRemainNumber
             // 
@@ -1561,7 +1583,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(453, 176);
+            this.groupBox2.Size = new System.Drawing.Size(453, 151);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Progress";
@@ -1575,7 +1597,7 @@
             this.richTextBoxHint.Location = new System.Drawing.Point(3, 32);
             this.richTextBoxHint.Name = "richTextBoxHint";
             this.richTextBoxHint.ReadOnly = true;
-            this.richTextBoxHint.Size = new System.Drawing.Size(447, 141);
+            this.richTextBoxHint.Size = new System.Drawing.Size(447, 116);
             this.richTextBoxHint.TabIndex = 0;
             this.richTextBoxHint.Text = "";
             // 
@@ -1620,25 +1642,15 @@
             this.bgHeuristic.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgHeuristic_ProgressChanged);
             this.bgHeuristic.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgHeuristic_RunWorkerCompleted);
             // 
-            // btnClear
+            // btnStop
             // 
-            this.btnClear.Location = new System.Drawing.Point(363, 39);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 40);
-            this.btnClear.TabIndex = 4;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(363, 90);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 40);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnStop.Location = new System.Drawing.Point(6, 136);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(432, 40);
+            this.btnStop.TabIndex = 6;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // Form1
             // 
@@ -1649,7 +1661,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SUDOKU SOLVER";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlpBoard.ResumeLayout(false);
@@ -1761,6 +1773,7 @@
         private System.Windows.Forms.RichTextBox richTextBoxHint;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

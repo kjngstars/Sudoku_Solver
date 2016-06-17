@@ -19,7 +19,7 @@ namespace SudokuSolver
 
         Dictionary<int, int[,]> sudokuPuzzles = new Dictionary<int, int[,]>();
         Random rand = new Random();
-        Puzzle puzzle = null;    
+        Puzzle puzzle = null;
 
         #endregion
         public Form1()
@@ -31,7 +31,7 @@ namespace SudokuSolver
         #region form event
         private void tableLayoutPanel2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
-            Pen p = new Pen(SystemColors.ControlDark,2);
+            Pen p = new Pen(SystemColors.ControlDark, 2);
 
             if (e.Column == 0 || e.Column == 3 || e.Column == 6)
                 e.Graphics.DrawLine(p, new Point(e.CellBounds.X, e.CellBounds.Y), new Point(e.CellBounds.X, e.CellBounds.Bottom));
@@ -39,12 +39,12 @@ namespace SudokuSolver
             if (e.Row == 0 || e.Row == 3 || e.Row == 6)
                 e.Graphics.DrawLine(p, new Point(e.CellBounds.X, e.CellBounds.Y), new Point(e.CellBounds.Right, e.CellBounds.Y));
 
-            if (e.Row == 8) 
+            if (e.Row == 8)
             {
                 e.Graphics.DrawLine(p, new Point(e.CellBounds.X, e.CellBounds.Bottom), new Point(e.CellBounds.Right, e.CellBounds.Bottom));
             }
 
-            if (e.Column == 8) 
+            if (e.Column == 8)
             {
                 e.Graphics.DrawLine(p, new Point(e.CellBounds.Right, e.CellBounds.Y), new Point(e.CellBounds.Right, e.CellBounds.Bottom));
             }
@@ -59,12 +59,12 @@ namespace SudokuSolver
                 int index, count = 0;
                 int[,] puzzle = null;
 
-                while (firstLine != null) 
+                while (firstLine != null)
                 {
-                    if (firstLine.StartsWith("#")) 
+                    if (firstLine.StartsWith("#"))
                     {
                         index = count = 0;
-                        puzzle = new int[9, 9];                        
+                        puzzle = new int[9, 9];
                         var indexString = firstLine.Substring(1);
                         index = int.Parse(indexString);
                         sudokuPuzzles.Add(index, puzzle);
@@ -74,13 +74,13 @@ namespace SudokuSolver
                     {
                         for (int i = 0; i < 9; i++)
                         {
-                            if (firstLine[i] != emptyDigit) 
+                            if (firstLine[i] != emptyDigit)
                             {
-                                if (puzzle != null) 
+                                if (puzzle != null)
                                 {
                                     puzzle[count, i] = (int)char.GetNumericValue(firstLine[i]);
                                 }
-                                
+
                             }
                         }
                         count++;
@@ -88,18 +88,18 @@ namespace SudokuSolver
                     firstLine = rd.ReadLine();
                 }
             }
-               
+
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
-        {            
+        {
             var index = rand.Next(1, sudokuPuzzles.Count + 1);
             var board = sudokuPuzzles[index];
 
             SudokuSolver.Instance.Reset();
             puzzle = new Puzzle(board);
             ShowFilledSquare(puzzle);
-            
+
         }
 
         private void btnSolveBacktracking_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace SudokuSolver
         private void btnSolveHeuristic_Click(object sender, EventArgs e)
         {
             bgHeuristic.RunWorkerAsync(puzzle);
-            
+
         }
         private void btnShowRemainNumber_Click(object sender, EventArgs e)
         {
@@ -127,10 +127,17 @@ namespace SudokuSolver
         }
         string GetNumberCandidateText(List<int> listNumber)
         {
+            int count = 0;
             string result = "";
             foreach (var item in listNumber)
             {
                 result += item.ToString() + " ";
+                count++;
+                if (count == 3)
+                {
+                    result += Environment.NewLine;
+                    count = 0;
+                }
             }
             return result;
         }
@@ -138,11 +145,12 @@ namespace SudokuSolver
         {
             foreach (Square square in puzzle.GetBoard())
             {
-                if (square.PosibleCandidate != null) 
+                if (square.PosibleCandidate != null)
                 {
                     string name = "textBox" + square.Row.ToString() + square.Column.ToString();
                     var textBox = tlpBoard.Controls.Find(name, true);
-                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 8.0f);
+                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 9.0f);
+                    textBox[0].ForeColor = Color.DarkBlue;
                     textBox[0].Text = GetNumberCandidateText(square.PosibleCandidate);
                 }
             }
@@ -154,6 +162,7 @@ namespace SudokuSolver
             {
                 var textBox = (TextBox)control;
                 textBox.Text = "";
+                SetDefaultAppearance(textBox);
             }
 
             string prefixName = "textBox";
@@ -167,22 +176,23 @@ namespace SudokuSolver
                 if (square.Value != 0)
                 {
                     SetDefaultAppearance(textBox[0]);
-                    textBox[0].ForeColor = Color.Orange;
                     textBox[0].Text = square.Value.ToString();
                 }
-                
+
                 prefixName = "textBox";
             }
 
-            
+
         }
         void UpdateSquare(Square square)
         {
             string textBoxName = "textBox" + square.Row.ToString() + square.Column.ToString();
             var textBox = tlpBoard.Controls.Find(textBoxName, true);
-            if (square.Value != 0) 
+            if (square.Value != 0)
             {
+                textBox[0].ForeColor = Color.Black;
                 textBox[0].Text = square.Value.ToString();
+
             }
             else
             {
@@ -209,8 +219,8 @@ namespace SudokuSolver
                     var name = "textBox" + square.Row.ToString() + square.Column.ToString();
                     var textBox = tlpBoard.Controls.Find(name, true);
                     var numbersCandidate = GetNumberCandidateText(square.PosibleCandidate);
-                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 8.0f);
-                    textBox[0].ForeColor = Color.Green;
+                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 9.0f);
+                    textBox[0].ForeColor = Color.DarkBlue;
                     textBox[0].Text = numbersCandidate;
                 }
             }
@@ -226,7 +236,7 @@ namespace SudokuSolver
             watch = new Stopwatch();
             watch.Start();
             var puzzle = (Puzzle)e.Argument;
-            SudokuSolver.Instance.SolveByBacktracking(puzzle, bgBacktracking);
+            SudokuSolver.Instance.SolveByBacktracking(puzzle, bgBacktracking, e);
             watch.Stop();
         }
 
@@ -244,7 +254,7 @@ namespace SudokuSolver
             richTextBoxResult.AppendText(result);
         }
 
-        #endregion      
+        #endregion
 
         #region heuristic background task
 
@@ -253,15 +263,15 @@ namespace SudokuSolver
             watch = new Stopwatch();
             watch.Start();
             var puzzle = (Puzzle)e.Argument;
-            var result = SudokuSolver.Instance.SolveByHeuristic(puzzle,bgHeuristic);
+            var result = SudokuSolver.Instance.SolveByHeuristic(puzzle, bgHeuristic, e);
             watch.Stop();
         }
 
         private void bgHeuristic_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            HeuristicResult result =(HeuristicResult)e.UserState;
+            HeuristicResult result = (HeuristicResult)e.UserState;
             UpdateSquareHeuristic(result);
-                 
+
         }
 
         private void bgHeuristic_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -297,10 +307,22 @@ namespace SudokuSolver
                     int r = int.Parse(index[0].ToString());
                     int c = int.Parse(index[1].ToString());
                     board[r, c] = int.Parse(tb.Text);
-                }               
+                }
             }
 
             puzzle = new Puzzle(board);
-        }     
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            if (bgBacktracking.IsBusy)
+            {
+                bgBacktracking.CancelAsync();
+            }
+            else if (bgHeuristic.IsBusy)
+            {
+                bgHeuristic.CancelAsync();
+            }
+        }
     }
 }
