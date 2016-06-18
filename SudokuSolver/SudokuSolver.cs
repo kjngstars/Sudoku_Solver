@@ -164,9 +164,12 @@ namespace SudokuSolver
                 tryState[startSquare.Row, startSquare.Column] = value;
                 var trySquare = tryState.GetSquare(startSquare.Row, startSquare.Column);
                 UpdateNakedSingle(tryState, trySquare);
+
                 //report progress
-                worker.ReportProgress(0, new HeuristicResult { CurrentState = tryState, ListSquareRelevant = new List<Square> { trySquare } });
+                worker.ReportProgress(0, new HeuristicResult { CurrentState = tryState, ListSquareRelevant = new List<Square> { trySquare }, BacktrackResult = new BacktrackingResult { Guess = true, HandlingSquare = tryState.GetSquare(startSquare.Row, startSquare.Column) } });
                 Thread.Sleep(20);
+
+                //recursion
                 var resultState = SolveByHeuristic(tryState, worker, e);
                 if (resultState.IsPuzzleSolved())
                 {
@@ -177,7 +180,9 @@ namespace SudokuSolver
                 }
                 else
                 {
-
+                    //backtracking
+                    worker.ReportProgress(0, new HeuristicResult { BacktrackResult = new BacktrackingResult { Backtracking = true, HandlingSquare = startSquare } });
+                    Thread.Sleep(20);
                 }
             }
             #endregion

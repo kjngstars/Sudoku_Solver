@@ -266,11 +266,12 @@ namespace SudokuSolver
 
             string textBoxName = "textBox" + result.HandlingSquare.Row.ToString() + result.HandlingSquare.Column.ToString();
             var textBox = tlpBoard.Controls.Find(textBoxName, true);
+            textBox[0].Font = new Font(textBox[0].Font.FontFamily, 18.0f);
+            textBox[0].ForeColor = Color.Black;
 
             if (result.Guess)
             {
                 
-                textBox[0].ForeColor = Color.Black;
                 var value = result.HandlingSquare.Value;
                 if (value != 0) 
                 {
@@ -286,7 +287,6 @@ namespace SudokuSolver
             }
             else if (result.Backtracking) 
             {
-                textBox[0].ForeColor = Color.Black;
                 textBox[0].Text = "";
                 string text = "Backtracking" + "\n";
                 richTextBoxHint.AppendText(text);
@@ -297,30 +297,32 @@ namespace SudokuSolver
         }
         void UpdateSquareHeuristic(HeuristicResult result)
         {
-            Puzzle currentState = result.CurrentState;
-            var listSquareToUpdate = currentState.GetBoard().FindAll(square => square.PosibleCandidate != null);
-
-            foreach (Square square in listSquareToUpdate)
+            if (result.CurrentState != null)
             {
-                if (square.Value != 0)
+                Puzzle currentState = result.CurrentState;
+                var listSquareToUpdate = currentState.GetBoard().FindAll(square => square.PosibleCandidate != null);
+
+                foreach (Square square in listSquareToUpdate)
                 {
-                    var name = "textBox" + square.Row.ToString() + square.Column.ToString();
-                    var textBox = tlpBoard.Controls.Find(name, true);
-                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 18.0f);
-                    textBox[0].ForeColor = Color.Black;
-                    textBox[0].Text = square.Value.ToString();
-                }
-                else
-                {
-                    var name = "textBox" + square.Row.ToString() + square.Column.ToString();
-                    var textBox = tlpBoard.Controls.Find(name, true);
-                    var numbersCandidate = GetNumberCandidateText(square.PosibleCandidate);
-                    textBox[0].Font = new Font(textBox[0].Font.FontFamily, 9.0f);
-                    textBox[0].ForeColor = Color.DarkBlue;
-                    textBox[0].Text = numbersCandidate;
+                    if (square.Value != 0)
+                    {
+                        var name = "textBox" + square.Row.ToString() + square.Column.ToString();
+                        var textBox = tlpBoard.Controls.Find(name, true);
+                        textBox[0].Font = new Font(textBox[0].Font.FontFamily, 18.0f);
+                        textBox[0].ForeColor = Color.Black;
+                        textBox[0].Text = square.Value.ToString();
+                    }
+                    else
+                    {
+                        var name = "textBox" + square.Row.ToString() + square.Column.ToString();
+                        var textBox = tlpBoard.Controls.Find(name, true);
+                        var numbersCandidate = GetNumberCandidateText(square.PosibleCandidate);
+                        textBox[0].Font = new Font(textBox[0].Font.FontFamily, 9.0f);
+                        textBox[0].ForeColor = Color.DarkBlue;
+                        textBox[0].Text = numbersCandidate;
+                    }
                 }
             }
-
         }
         void UpdateProcess(HeuristicResult result)
         {
@@ -381,6 +383,12 @@ namespace SudokuSolver
             HeuristicResult result = (HeuristicResult)e.UserState;
             UpdateSquareHeuristic(result);
             UpdateProcess(result);
+            if (result.BacktrackResult != null)
+            {
+                UpdateBacktracking(result.BacktrackResult);
+                puzzle = null;
+            }
+
         }
 
         private void bgHeuristic_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
