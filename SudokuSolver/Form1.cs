@@ -291,8 +291,6 @@ namespace SudokuSolver
                 string text = "Backtracking" + "\n";
                 richTextBoxHint.AppendText(text);
             }
-
-
             
         }
         void UpdateSquareHeuristic(HeuristicResult result)

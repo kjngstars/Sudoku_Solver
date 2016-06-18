@@ -21,6 +21,7 @@ namespace SudokuSolver
 
         public enum HeuristicType
         {
+            NAKEDSINGLE,
             NAKEDSUBSET,
             INTERSECT
         }
@@ -123,7 +124,7 @@ namespace SudokuSolver
                 if (puzzle.IsPuzzleSolved())
                 {
                     worker.ReportProgress(0, new HeuristicResult { CurrentState = puzzle, ListSquareRelevant = new List<Square>() });
-                    Thread.Sleep(20);
+                    Thread.Sleep(10);
                     currentPuzzleSolved = true;
                     return puzzle;
                 }
@@ -134,7 +135,7 @@ namespace SudokuSolver
                 if (result.ReSolved == true)
                 {
                     worker.ReportProgress(0, result);
-                    Thread.Sleep(20);
+                    Thread.Sleep(10);
                     continue;
                 }
 
@@ -142,7 +143,7 @@ namespace SudokuSolver
                 if (result.ReSolved == true)
                 {
                     worker.ReportProgress(0, result);
-                    Thread.Sleep(20);
+                    Thread.Sleep(10);
                     continue;
                 }
 
@@ -167,14 +168,14 @@ namespace SudokuSolver
 
                 //report progress
                 worker.ReportProgress(0, new HeuristicResult { CurrentState = tryState, ListSquareRelevant = new List<Square> { trySquare }, BacktrackResult = new BacktrackingResult { Guess = true, HandlingSquare = tryState.GetSquare(startSquare.Row, startSquare.Column) } });
-                Thread.Sleep(20);
+                Thread.Sleep(10);
 
                 //recursion
                 var resultState = SolveByHeuristic(tryState, worker, e);
                 if (resultState.IsPuzzleSolved())
                 {
                     worker.ReportProgress(0, new HeuristicResult { CurrentState = resultState, ListSquareRelevant = new List<Square>() });
-                    Thread.Sleep(20);
+                    Thread.Sleep(10);
                     currentPuzzleSolved = true;
                     return resultState;
                 }
@@ -182,7 +183,7 @@ namespace SudokuSolver
                 {
                     //backtracking
                     worker.ReportProgress(0, new HeuristicResult { BacktrackResult = new BacktrackingResult { Backtracking = true, HandlingSquare = startSquare } });
-                    Thread.Sleep(20);
+                    Thread.Sleep(10);
                 }
             }
             #endregion
@@ -205,7 +206,8 @@ namespace SudokuSolver
                 {
                     nakedSingle.Value = nakedSingle.PosibleCandidate[0];
                     UpdateNakedSingle(puzzle, nakedSingle);
-                    return new HeuristicResult { ReSolved = true, ListSquareRelevant = new List<Square> { nakedSingle }, CurrentState = puzzle };
+                    var desc = GetDescriptionProcess(new List<Square> { nakedSingle }, HeuristicType.NAKEDSINGLE);
+                    return new HeuristicResult { ReSolved = true, ListSquareRelevant = new List<Square> { nakedSingle }, CurrentState = puzzle, Description = desc };
                 }
             }
 
