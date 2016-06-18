@@ -113,6 +113,7 @@
             this.textBox88 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnShowRemainNumber = new System.Windows.Forms.Button();
@@ -125,7 +126,6 @@
             this.richTextBoxResult = new System.Windows.Forms.RichTextBox();
             this.bgBacktracking = new System.ComponentModel.BackgroundWorker();
             this.bgHeuristic = new System.ComponentModel.BackgroundWorker();
-            this.btnStop = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpBoard.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -1512,6 +1512,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sudoku Solver";
             // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(6, 136);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(432, 40);
+            this.btnStop.TabIndex = 6;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(363, 90);
@@ -1644,16 +1654,6 @@
             this.bgHeuristic.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgHeuristic_ProgressChanged);
             this.bgHeuristic.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgHeuristic_RunWorkerCompleted);
             // 
-            // btnStop
-            // 
-            this.btnStop.Location = new System.Drawing.Point(6, 136);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(432, 40);
-            this.btnStop.TabIndex = 6;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1664,6 +1664,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "SUDOKU SOLVER";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlpBoard.ResumeLayout(false);

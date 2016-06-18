@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace SudokuSolver
 {
@@ -402,6 +403,13 @@ namespace SudokuSolver
         }
 
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            typeof(TableLayoutPanel).InvokeMember("DoubleBuffered",
+    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+    null, tlpBoard, new object[] { true });
+        }
        
     }
 }
