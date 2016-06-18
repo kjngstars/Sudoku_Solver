@@ -9,7 +9,7 @@ namespace SudokuSolver
 {
     [Serializable()]
     public class Puzzle : ISerializable
-    {
+    {        
         private List<Square> sudokuBoard = new List<Square>();
         public Puzzle(){ }
         public Puzzle(int[,] board)
@@ -168,7 +168,7 @@ namespace SudokuSolver
         #region helper method
         public bool IsPuzzleSolved()
         {
-            return sudokuBoard.All(square => square.Value != 0);
+            return sudokuBoard.All(square => square.Value != 0);                   
         }
 
         public bool IsValidCandidate(int row, int column, int value)

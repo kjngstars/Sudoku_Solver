@@ -71,11 +71,25 @@ namespace SudokuSolver
         
     }
 
-    //This class used for return value for update UI
-    public class HeuristicResult
+    //These classes are used for return value to update UI
+    public class Result
+    {   
+        public bool ReSolved { get; set; }
+        public bool Stopped { get; set; }
+    }
+
+    public class BacktrackingResult : Result
     {
-        public bool Resolved { get; set; }
+        public bool Guess { get; set; }
+        public bool Backtracking { get; set; }
+        public Square HandlingSquare { get; set; }
+    }
+
+    public class HeuristicResult : Result
+    {        
         public Puzzle CurrentState { get; set; }        
         public List<Square> ListSquareRelevant { get; set; }
+        public string Description { get; set; }
+        public BacktrackingResult BacktrackResult { get; set; }
     }
 }

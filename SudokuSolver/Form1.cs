@@ -95,7 +95,8 @@ namespace SudokuSolver
         {
             var index = rand.Next(1, sudokuPuzzles.Count + 1);
             var board = sudokuPuzzles[index];
-
+            richTextBoxHint.Clear();
+            
             SudokuSolver.Instance.Reset();
             puzzle = new Puzzle(board);
             ShowFilledSquare(puzzle);
@@ -104,17 +105,88 @@ namespace SudokuSolver
 
         private void btnSolveBacktracking_Click(object sender, EventArgs e)
         {
-            bgBacktracking.RunWorkerAsync(puzzle);
+            if (puzzle != null) 
+            {
+                bgBacktracking.RunWorkerAsync(puzzle);
+            }
+            else
+            {
+                MessageBox.Show("You must add Sudoku Puzzle first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSolveHeuristic_Click(object sender, EventArgs e)
         {
-            bgHeuristic.RunWorkerAsync(puzzle);
-
+            if (puzzle != null) 
+            {
+                bgHeuristic.RunWorkerAsync(puzzle);  
+            }
+            else
+            {
+                MessageBox.Show("You must add Sudoku Puzzle first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
+
         private void btnShowRemainNumber_Click(object sender, EventArgs e)
         {
             ShowRemainNumberCandidate(puzzle);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            SudokuSolver.Instance.Reset();
+            foreach (var control in tlpBoard.Controls)
+            {
+                TextBox tb = (TextBox)control;
+                SetDefaultAppearance(tb);
+                tb.Text = "";
+            }
+
+            richTextBoxHint.Clear();
+            richTextBoxResult.Clear();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int[,] board = new int[9, 9];
+            foreach (var control in tlpBoard.Controls)
+            {
+                TextBox tb = (TextBox)control;
+                if (tb.Text != "")
+                {
+                    string name = tb.Name;
+                    string index = name.Substring(name.Length - 2);
+                    int r = int.Parse(index[0].ToString());
+                    int c = int.Parse(index[1].ToString());
+                    board[r, c] = int.Parse(tb.Text);
+                }
+            }
+
+            puzzle = new Puzzle(board);
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            if (bgBacktracking.IsBusy)
+            {
+                bgBacktracking.CancelAsync();
+            }
+            else if (bgHeuristic.IsBusy)
+            {
+                bgHeuristic.CancelAsync();
+            }
+        }
+        private void richTextBoxHint_TextChanged(object sender, EventArgs e)
+        {
+            richTextBoxHint.SelectionStart = richTextBoxHint.Text.Length;
+            richTextBoxHint.ScrollToCaret();
+        }
+
+        private void richTextBoxResult_TextChanged(object sender, EventArgs e)
+        {
+            richTextBoxResult.SelectionStart = richTextBoxResult.Text.Length;
+            richTextBoxResult.ScrollToCaret();
         }
 
         #endregion
@@ -184,20 +256,44 @@ namespace SudokuSolver
 
 
         }
-        void UpdateSquare(Square square)
+        void UpdateBacktracking(BacktrackingResult result)
         {
-            string textBoxName = "textBox" + square.Row.ToString() + square.Column.ToString();
-            var textBox = tlpBoard.Controls.Find(textBoxName, true);
-            if (square.Value != 0)
+            if (result.Stopped)
             {
+                richTextBoxHint.AppendText("Stop backtracking...!");
+                return;
+            }
+
+            string textBoxName = "textBox" + result.HandlingSquare.Row.ToString() + result.HandlingSquare.Column.ToString();
+            var textBox = tlpBoard.Controls.Find(textBoxName, true);
+
+            if (result.Guess)
+            {
+                
                 textBox[0].ForeColor = Color.Black;
-                textBox[0].Text = square.Value.ToString();
+                var value = result.HandlingSquare.Value;
+                if (value != 0) 
+                {
+                    textBox[0].Text = value.ToString();
+                }
+                
+                //update process
+                string sqr = "r{0}c{1}";
+                var str = string.Format(sqr, result.HandlingSquare.Row.ToString(), result.HandlingSquare.Column.ToString());
+                string text = "Guess " + result.HandlingSquare.Value + " at square " + str + "\n";
+                richTextBoxHint.AppendText(text);
 
             }
-            else
+            else if (result.Backtracking) 
             {
+                textBox[0].ForeColor = Color.Black;
                 textBox[0].Text = "";
+                string text = "Backtracking" + "\n";
+                richTextBoxHint.AppendText(text);
             }
+
+
+            
         }
         void UpdateSquareHeuristic(HeuristicResult result)
         {
@@ -226,6 +322,14 @@ namespace SudokuSolver
             }
 
         }
+        void UpdateProcess(HeuristicResult result)
+        {
+            if (result.Description != null)
+            {
+                richTextBoxHint.AppendText(result.Description);
+            }
+
+        }
 
         #endregion
 
@@ -242,8 +346,8 @@ namespace SudokuSolver
 
         private void bgBacktracking_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            var square = (Square)e.UserState;
-            UpdateSquare(square);
+            var result = (BacktrackingResult)e.UserState;
+            UpdateBacktracking(result);
 
         }
 
@@ -252,6 +356,11 @@ namespace SudokuSolver
             var timePass = (double)watch.ElapsedMilliseconds / 1000;
             var result = "✔ Time take: " + timePass.ToString() + " Seconds\n";
             richTextBoxResult.AppendText(result);
+            if (SudokuSolver.Instance.IsPuzzleSolved())
+            {          
+                richTextBoxHint.AppendText("Puzzle solved...!");
+                puzzle = null;
+            }
         }
 
         #endregion
@@ -271,7 +380,7 @@ namespace SudokuSolver
         {
             HeuristicResult result = (HeuristicResult)e.UserState;
             UpdateSquareHeuristic(result);
-
+            UpdateProcess(result);
         }
 
         private void bgHeuristic_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -279,50 +388,14 @@ namespace SudokuSolver
             var timePass = (double)watch.ElapsedMilliseconds / 1000;
             var result = "✔ Time take: " + timePass.ToString() + " Seconds\n";
             richTextBoxResult.AppendText(result);
+            if (SudokuSolver.Instance.IsPuzzleSolved())
+            {
+                richTextBoxHint.AppendText("Puzzle solved...!");
+                puzzle = null;
+            }
         }
 
         #endregion
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            SudokuSolver.Instance.Reset();
-            foreach (var control in tlpBoard.Controls)
-            {
-                TextBox tb = (TextBox)control;
-                SetDefaultAppearance(tb);
-                tb.Text = "";
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            int[,] board = new int[9, 9];
-            foreach (var control in tlpBoard.Controls)
-            {
-                TextBox tb = (TextBox)control;
-                if (tb.Text != "")
-                {
-                    string name = tb.Name;
-                    string index = name.Substring(name.Length - 2);
-                    int r = int.Parse(index[0].ToString());
-                    int c = int.Parse(index[1].ToString());
-                    board[r, c] = int.Parse(tb.Text);
-                }
-            }
-
-            puzzle = new Puzzle(board);
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            if (bgBacktracking.IsBusy)
-            {
-                bgBacktracking.CancelAsync();
-            }
-            else if (bgHeuristic.IsBusy)
-            {
-                bgHeuristic.CancelAsync();
-            }
-        }
+       
     }
 }

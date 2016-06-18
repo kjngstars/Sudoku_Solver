@@ -28,6 +28,8 @@ namespace SudokuSolver
         #endregion
         
         private static SudokuSolver instance = null;
+
+        private bool currentPuzzleSolved = false;
         public static SudokuSolver Instance
         {
             get
@@ -46,24 +48,33 @@ namespace SudokuSolver
         //prevent create new instance
         private SudokuSolver() { }        
 
+        public bool IsPuzzleSolved()
+        {
+            return currentPuzzleSolved;
+        }
         public void Reset()
         {            
             checkedHeuristic.Clear();
+            currentPuzzleSolved = false;
         }
 
         #region sudoku solver method
-        public void SolveByBacktracking(Puzzle puzzle, BackgroundWorker worker, DoWorkEventArgs e)
+        public BacktrackingResult SolveByBacktracking(Puzzle puzzle, BackgroundWorker worker, DoWorkEventArgs e)
         {
 
             if (worker.CancellationPending) 
             {
                 e.Cancel = true;
-                return;
+                var result = new BacktrackingResult { Stopped = true };
+                worker.ReportProgress(0, result);
+                Thread.Sleep(10);
+                return result;
             }
 
             if (puzzle.IsPuzzleSolved())
             {
-                return;
+                currentPuzzleSolved = true;
+                return new BacktrackingResult { ReSolved = true };
             }
 
             var startSquare = puzzle.GetSquareToStart();
@@ -76,22 +87,28 @@ namespace SudokuSolver
 
                 }
                 puzzle[startSquare.Row, startSquare.Column] = value;
-                worker.ReportProgress(0, startSquare);
+                worker.ReportProgress(0, new BacktrackingResult { Guess = true, Backtracking = false, HandlingSquare = startSquare });
                 Thread.Sleep(10);
 
-                SolveByBacktracking(puzzle, worker, e);
+                var result = SolveByBacktracking(puzzle, worker, e);
 
-                if (puzzle.IsPuzzleSolved())
+                if (result.Stopped) 
                 {
-                    return;
+                    return new BacktrackingResult { Stopped = true };
+                }
+                else if (result.ReSolved)
+                {
+                    return new BacktrackingResult { ReSolved = true };
                 }
                 else
                 {
+                    worker.ReportProgress(0, new BacktrackingResult { Guess = false, Backtracking = true, HandlingSquare = startSquare });
+                    Thread.Sleep(10);
                     puzzle[startSquare.Row, startSquare.Column] = 0;
                 }
             }
 
-            return;
+            return new BacktrackingResult { ReSolved = false };
         }
         public Puzzle SolveByHeuristic(Puzzle puzzle, BackgroundWorker worker, DoWorkEventArgs e)
         {
@@ -107,13 +124,14 @@ namespace SudokuSolver
                 {
                     worker.ReportProgress(0, new HeuristicResult { CurrentState = puzzle, ListSquareRelevant = new List<Square>() });
                     Thread.Sleep(20);
+                    currentPuzzleSolved = true;
                     return puzzle;
                 }
 
                 HeuristicResult result = null;
 
                 result = ApplyNakedTuple(puzzle);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     worker.ReportProgress(0, result);
                     Thread.Sleep(20);
@@ -121,7 +139,7 @@ namespace SudokuSolver
                 }
 
                 result = ApplyIntersection(puzzle);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     worker.ReportProgress(0, result);
                     Thread.Sleep(20);
@@ -154,7 +172,12 @@ namespace SudokuSolver
                 {
                     worker.ReportProgress(0, new HeuristicResult { CurrentState = resultState, ListSquareRelevant = new List<Square>() });
                     Thread.Sleep(20);
+                    currentPuzzleSolved = true;
                     return resultState;
+                }
+                else
+                {
+
                 }
             }
             #endregion
@@ -177,11 +200,11 @@ namespace SudokuSolver
                 {
                     nakedSingle.Value = nakedSingle.PosibleCandidate[0];
                     UpdateNakedSingle(puzzle, nakedSingle);
-                    return new HeuristicResult { Resolved = true, ListSquareRelevant = new List<Square> { nakedSingle }, CurrentState = puzzle };
+                    return new HeuristicResult { ReSolved = true, ListSquareRelevant = new List<Square> { nakedSingle }, CurrentState = puzzle };
                 }
             }
 
-            return new HeuristicResult { Resolved = false };
+            return new HeuristicResult { ReSolved = false };
         }
 
         void UpdateNakedSingle(Puzzle puzzle, Square square)
@@ -219,40 +242,40 @@ namespace SudokuSolver
 
             //naked single
             result = NakedSingle(puzzle);
-            if (result.Resolved == true)
+            if (result.ReSolved == true)
             {
                 return result;
             }
 
             //naked pair
             result = NakedTuple(puzzle, 2);
-            if (result.Resolved == true)
+            if (result.ReSolved == true)
             {
                 return result;
             }
 
             //naked triple
             result = NakedTuple(puzzle, 3);
-            if (result.Resolved == true)
+            if (result.ReSolved == true)
             {
                 return result;
             }
 
             //naked quad
             result = NakedTuple(puzzle, 4);
-            if (result.Resolved == true)
+            if (result.ReSolved == true)
             {
                 return result;
             }
 
             //naked quint
             result = NakedTuple(puzzle, 5);
-            if (result.Resolved == true)
+            if (result.ReSolved == true)
             {
                 return result;
             }
 
-            return (result = new HeuristicResult { Resolved = false });
+            return (result = new HeuristicResult { ReSolved = false });
         }
         public HeuristicResult NakedTuple(Puzzle puzzle, int tuple)
         {
@@ -260,7 +283,7 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 var result = NakedTupeByHouse(puzzle, tuple, i, HouseType.ROW);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     return result;
                 }
@@ -270,7 +293,7 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 var result = NakedTupeByHouse(puzzle, tuple, i, HouseType.COLUMN);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     return result;
                 }
@@ -280,13 +303,13 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 var result = NakedTupeByHouse(puzzle, tuple, i, HouseType.BLOCK);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     return result;
                 }
             }
 
-            return new HeuristicResult { Resolved = false };
+            return new HeuristicResult { ReSolved = false };
         }
 
         public void UpdateNakedTupe(Puzzle puzzle, List<Square> listNakedTuple)
@@ -351,11 +374,12 @@ namespace SudokuSolver
                             checkedHeuristic.Add(hash);
                         }
                         UpdateNakedTupe(puzzle, nakedSquare);
-                        return new HeuristicResult { Resolved = true, ListSquareRelevant = nakedSquare, CurrentState = puzzle };
+                        var desc = GetDescriptionProcess(nakedSquare, HeuristicType.NAKEDSUBSET);
+                        return new HeuristicResult { ReSolved = true, ListSquareRelevant = nakedSquare, CurrentState = puzzle,Description = desc };
                     }
                 }
             }
-            return new HeuristicResult { Resolved = false };
+            return new HeuristicResult { ReSolved = false };
         }
 
         void UpdateNakedTupeByHouse(Puzzle puzzle, List<Square> listNakedTupe, HouseType type)
@@ -399,7 +423,7 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 result = Intersection(puzzle, HouseType.BLOCK, i);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     return result;
                 }
@@ -409,7 +433,7 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 result = Intersection(puzzle, HouseType.ROW, i);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     return result;
                 }
@@ -419,13 +443,13 @@ namespace SudokuSolver
             for (int i = 0; i < 9; i++)
             {
                 result = Intersection(puzzle, HouseType.COLUMN, i);
-                if (result.Resolved == true)
+                if (result.ReSolved == true)
                 {
                     return result;
                 }
             }
 
-            return new HeuristicResult { Resolved = false };
+            return new HeuristicResult { ReSolved = false };
         }
         public HeuristicResult Intersection(Puzzle puzzle, HouseType houseType, int index)
         {
@@ -471,7 +495,8 @@ namespace SudokuSolver
                             }
 
                             UpdateIntersection(puzzle, value, intersectionSquare, HouseType.ROW);
-                            return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
+                            var desc = GetDescriptionProcess(intersectionSquare, HeuristicType.INTERSECT);
+                            return new HeuristicResult { CurrentState = puzzle, ReSolved = true, ListSquareRelevant = intersectionSquare, Description = desc };
                         }
                         else if (intersectionSquare.All(sq => sq.Column == intersectionSquare[0].Column))
                         {
@@ -485,7 +510,8 @@ namespace SudokuSolver
                             }
 
                             UpdateIntersection(puzzle, value, intersectionSquare, HouseType.COLUMN);
-                            return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
+                            var desc = GetDescriptionProcess(intersectionSquare, HeuristicType.INTERSECT);
+                            return new HeuristicResult { CurrentState = puzzle, ReSolved = true, ListSquareRelevant = intersectionSquare, Description = desc };
                         }
                     }
                     else
@@ -502,13 +528,14 @@ namespace SudokuSolver
                             }
 
                             UpdateIntersection(puzzle, value, intersectionSquare, HouseType.BLOCK);
-                            return new HeuristicResult { CurrentState = puzzle, Resolved = true, ListSquareRelevant = intersectionSquare };
+                            var desc = GetDescriptionProcess(intersectionSquare, HeuristicType.INTERSECT);
+                            return new HeuristicResult { CurrentState = puzzle, ReSolved = true, ListSquareRelevant = intersectionSquare, Description = desc };
                         }
                     }
                 }
             }
 
-            return new HeuristicResult { Resolved = false };
+            return new HeuristicResult { ReSolved = false };
         }
 
         void UpdateIntersection(Puzzle puzzle, int value, List<Square> intersection, HouseType houseType)
@@ -563,6 +590,21 @@ namespace SudokuSolver
             }
 
             return hash;
+        }
+
+        string GetDescriptionProcess(List<Square> listPuzzle, HeuristicType heuristic)
+        {
+            string square = "r{0}c{1}";
+            string description = heuristic.ToString() + ": ";
+
+            foreach (var item in listPuzzle)
+            {
+                var str = string.Format(square, item.Row, item.Column);
+                description += str + ", ";
+            }
+            description = description.Remove(description.Length - 2);
+            description += "\n";
+            return description;
         }
 
         public static bool ContainsAllItems<T>(List<T> a, List<T> b)

@@ -1488,9 +1488,9 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(505, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.10112F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.89888F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.83784F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.16216F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 124F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(459, 495);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -1505,9 +1505,9 @@
             this.groupBox1.Controls.Add(this.btnGenerate);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 160);
+            this.groupBox1.Location = new System.Drawing.Point(3, 180);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 193);
+            this.groupBox1.Size = new System.Drawing.Size(453, 187);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sudoku Solver";
@@ -1583,7 +1583,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(453, 151);
+            this.groupBox2.Size = new System.Drawing.Size(453, 171);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Progress";
@@ -1597,18 +1597,19 @@
             this.richTextBoxHint.Location = new System.Drawing.Point(3, 32);
             this.richTextBoxHint.Name = "richTextBoxHint";
             this.richTextBoxHint.ReadOnly = true;
-            this.richTextBoxHint.Size = new System.Drawing.Size(447, 116);
+            this.richTextBoxHint.Size = new System.Drawing.Size(447, 136);
             this.richTextBoxHint.TabIndex = 0;
             this.richTextBoxHint.Text = "";
+            this.richTextBoxHint.TextChanged += new System.EventHandler(this.richTextBoxHint_TextChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.richTextBoxResult);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 359);
+            this.groupBox3.Location = new System.Drawing.Point(3, 373);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(453, 133);
+            this.groupBox3.Size = new System.Drawing.Size(453, 119);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Result";
@@ -1622,9 +1623,10 @@
             this.richTextBoxResult.Location = new System.Drawing.Point(3, 32);
             this.richTextBoxResult.Name = "richTextBoxResult";
             this.richTextBoxResult.ReadOnly = true;
-            this.richTextBoxResult.Size = new System.Drawing.Size(447, 98);
+            this.richTextBoxResult.Size = new System.Drawing.Size(447, 84);
             this.richTextBoxResult.TabIndex = 0;
             this.richTextBoxResult.Text = "";
+            this.richTextBoxResult.TextChanged += new System.EventHandler(this.richTextBoxResult_TextChanged);
             // 
             // bgBacktracking
             // 
